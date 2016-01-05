@@ -1,5 +1,6 @@
 package com.dice.kevin.x_wingdiceestimator;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -283,13 +284,64 @@ public class DiceRoller extends AppCompatActivity {
         */
 
         Attack0Prob.setText(df.format(a0dp));
+        //Color Setting
+        //0 is special since it is bad
+
+        if (a0dp < e0dp){
+            Attack0Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+        }else{
+            Attack0Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
+        }
+
         Attack1Prob.setText(df.format(a1dp));
+        if (a1dp - e1dp >= 0.25){
+            Attack1Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+        }else if (a1dp - e1dp >0){
+            Attack1Prob.setBackgroundColor(getResources().getColor(R.color.okayYellow));
+        }else{
+            Attack1Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
+        }
         Attack2Prob.setText(df.format(a2dp));
+        if (a2dp - e2dp >= 0.25){
+            Attack2Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+        }else if (a2dp - e2dp >0){
+            Attack2Prob.setBackgroundColor(getResources().getColor(R.color.okayYellow));
+        }else{
+            Attack2Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
+        }
         Attack3Prob.setText(df.format(a3dp));
+        if (a3dp - e3dp >= 0.25){
+            Attack3Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+        }else if (a3dp - e3dp >0){
+            Attack3Prob.setBackgroundColor(getResources().getColor(R.color.okayYellow));
+        }else{
+            Attack3Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
+        }
         Attack4Prob.setText(df.format(a4dp));
+        if (a4dp - e4dp >= 0.25){
+            Attack4Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+        }else if (a4dp - e4dp >0){
+            Attack4Prob.setBackgroundColor(getResources().getColor(R.color.okayYellow));
+        }else{
+            Attack4Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
+        }
         Attack5Prob.setText(df.format(a5dp));
+        if (a5dp - e5dp >= 0.25){
+            Attack5Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+        }else if (a5dp - e5dp >0){
+            Attack5Prob.setBackgroundColor(getResources().getColor(R.color.okayYellow));
+        }else{
+            Attack5Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
+        }
         Attack6Prob.setText(df.format(a6dp));
 
+        if (a6dp - e6dp >= 0.25){
+            Attack6Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+        }else if (a6dp - e6dp >0){
+            Attack6Prob.setBackgroundColor(getResources().getColor(R.color.okayYellow));
+        }else{
+            Attack6Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
+        }
         /*
         Attack0Cumu.setText(df.format(a0dp*AttackDieInt));
         if (AttackDieInt >= 1) {
@@ -401,8 +453,8 @@ public class DiceRoller extends AppCompatActivity {
         currentMissProb = (1 - currentHitProb);
 
         if (TargetLock) {
-            currentHitProb += currentMissProb*currentHitProb;
-            currentMissProb -= currentMissProb*currentMissProb;
+            currentHitProb = currentHitProb+ (currentHitProb*currentMissProb);
+            currentMissProb = currentMissProb*currentMissProb;
         }
     }
 
