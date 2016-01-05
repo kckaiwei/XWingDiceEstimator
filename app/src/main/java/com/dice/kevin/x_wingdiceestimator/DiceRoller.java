@@ -2,6 +2,7 @@ package com.dice.kevin.x_wingdiceestimator;
 
 import android.app.ActionBar;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -102,6 +103,7 @@ public class DiceRoller extends AppCompatActivity {
         Defense5Prob = (TextView) findViewById(R.id.DefDie5Prob);
         Defense6Prob = (TextView) findViewById(R.id.DefDie6Prob);
 
+        initialBarSet();
 
         AttackDieInt = 0;
         DefenseDieInt = 0;
@@ -395,8 +397,10 @@ public class DiceRoller extends AppCompatActivity {
 
 
         //NOT WORKING!!!
-        //defenseChangeDimensions();
         //defenseResetDimensions();
+        defenseChangeDimensions();
+        attackChangeDimensions();
+
 
 
         DefDie0Cumu.setText(df.format(e0dp));
@@ -462,17 +466,43 @@ public class DiceRoller extends AppCompatActivity {
         Defense6Prob.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
     }
 
-    public void defenseChangeDimensions() {
-        Defense0Prob.setWidth((int) Math.round(e0dp * (ViewGroup.LayoutParams.MATCH_PARENT)));
-        Defense0Prob.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-        Defense1Prob.setWidth((int) Math.round(e1dp * screenWidthpx));
-        Defense1Prob.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
-        Defense2Prob.setWidth((int) e2dp*screenWidthpx);
-        Defense3Prob.setWidth((int) e3dp*screenWidthpx);
-        Defense4Prob.setWidth((int) e4dp*screenWidthpx);
-        Defense5Prob.setWidth((int) e5dp*screenWidthpx);
-        Defense6Prob.setWidth((int) e6dp*screenWidthpx);
+    public void attackChangeDimensions() {
+        Attack0Prob.setWidth((int) ((screenWidthpx/8)+ (a0dp * (screenWidthpx/3))));
+        Attack1Prob.setWidth((int) ((screenWidthpx/8)+ (a1dp * (screenWidthpx/3))));
+        Attack2Prob.setWidth((int) ((screenWidthpx/8)+ (a2dp * (screenWidthpx/3))));
+        Attack3Prob.setWidth((int) ((screenWidthpx/8)+ (a3dp * (screenWidthpx/3))));
+        Attack4Prob.setWidth((int) ((screenWidthpx/8)+ (a4dp * (screenWidthpx/3))));
+        Attack5Prob.setWidth((int) ((screenWidthpx/8)+ (a5dp * (screenWidthpx/3))));
+        Attack6Prob.setWidth((int) ((screenWidthpx/8)+ (a6dp * (screenWidthpx/3))));
+    }
 
+    public void defenseChangeDimensions() {
+        Defense0Prob.setWidth((int) ((screenWidthpx/8)+(e0dp * (screenWidthpx / 3))));
+        Defense1Prob.setWidth((int) ((screenWidthpx/8)+(e1dp * (screenWidthpx / 3))));
+        Defense2Prob.setWidth((int) ((screenWidthpx/8)+(e2dp * (screenWidthpx / 3))));
+        Defense3Prob.setWidth((int) ((screenWidthpx/8)+(e3dp * (screenWidthpx / 3))));
+        Defense4Prob.setWidth((int) ((screenWidthpx/8)+(e4dp * (screenWidthpx / 3))));
+        Defense5Prob.setWidth((int) ((screenWidthpx/8)+(e5dp * (screenWidthpx / 3))));
+        Defense6Prob.setWidth((int) ((screenWidthpx/8)+(e6dp * (screenWidthpx / 3))));
+
+    }
+
+    public void initialBarSet(){
+        Defense0Prob.setWidth((int) ((screenWidthpx/8)));
+        Defense1Prob.setWidth((int) ((screenWidthpx/8)));
+        Defense2Prob.setWidth((int) ((screenWidthpx/8)));
+        Defense3Prob.setWidth((int) ((screenWidthpx/8)));
+        Defense4Prob.setWidth((int) ((screenWidthpx/8)));
+        Defense5Prob.setWidth((int) ((screenWidthpx/8)));
+        Defense6Prob.setWidth((int) ((screenWidthpx/8)));
+
+        Attack0Prob.setWidth((int) ((screenWidthpx / 8)));
+        Attack1Prob.setWidth((int) ((screenWidthpx/8)));
+        Attack2Prob.setWidth((int) ((screenWidthpx/8)));
+        Attack3Prob.setWidth((int) ((screenWidthpx/8)));
+        Attack4Prob.setWidth((int) ((screenWidthpx/8)));
+        Attack5Prob.setWidth((int) ((screenWidthpx/8)));
+        Attack6Prob.setWidth((int) ((screenWidthpx/8)));
     }
 
     public void chanceMultiplication() {
@@ -497,9 +527,6 @@ public class DiceRoller extends AppCompatActivity {
         a0dp = currentMissProb;
         a1dp = currentHitProb*1;
 
-
-         // Attack0Prob.setText(String.valueOf((currentMissProb) * 1));
-         // Attack1Prob.setText(String.valueOf((currentHitProb) * 1));
 
     }
 
