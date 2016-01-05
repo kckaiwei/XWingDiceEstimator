@@ -241,7 +241,8 @@
                     android:layout_height="wrap_content"
                     android:text="Hits/Crits"
                     android:id="@+id/HitsCrits"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -249,7 +250,6 @@
                     android:text="% Chance"
                     android:id="@+id/textView"
                     android:layout_gravity="right"
-                    android:layout_rowWeight="0"
                     android:layout_columnWeight="1"
                     android:layout_marginRight="5dp"
                     android:textColor="#000000" />
@@ -260,14 +260,16 @@
                     android:text="Cumulative Dice"
                     android:id="@+id/textView13"
                     android:layout_gravity="right"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
                     android:id="@+id/textView10"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -275,7 +277,6 @@
                     android:text="0"
                     android:id="@+id/Attack0Prob"
                     android:layout_gravity="right"
-                    android:layout_rowWeight="0"
                     android:layout_columnWeight="1"
                     android:layout_marginRight="5dp"
                     android:autoText="false"
@@ -288,14 +289,16 @@
                     android:text="0"
                     android:id="@+id/Attack0Cumu"
                     android:layout_gravity="right"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1"
                     android:id="@+id/textView2"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -303,7 +306,6 @@
                     android:text="0"
                     android:id="@+id/Attack1Prob"
                     android:layout_gravity="right"
-                    android:layout_rowWeight="0"
                     android:layout_columnWeight="1"
                     android:layout_marginRight="5dp"
                     android:background="#af2421"
@@ -315,14 +317,16 @@
                     android:text="0"
                     android:id="@+id/Attack1Cumu"
                     android:layout_gravity="right"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2"
                     android:id="@+id/textView3"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -330,7 +334,6 @@
                     android:text="0"
                     android:id="@+id/Attack2Prob"
                     android:layout_gravity="right"
-                    android:layout_rowWeight="0"
                     android:layout_columnWeight="1"
                     android:layout_marginRight="5dp"
                     android:background="#af2421"
@@ -342,14 +345,16 @@
                     android:text="0"
                     android:id="@+id/Attack2Cumu"
                     android:layout_gravity="right"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="3"
                     android:id="@+id/textView4"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -357,7 +362,6 @@
                     android:text="0"
                     android:id="@+id/Attack3Prob"
                     android:layout_gravity="right"
-                    android:layout_rowWeight="0"
                     android:layout_columnWeight="1"
                     android:layout_marginRight="5dp"
                     android:background="#af2421"
@@ -369,14 +373,16 @@
                     android:text="0"
                     android:id="@+id/Attack3Cumu"
                     android:layout_gravity="right"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="4"
                     android:id="@+id/textView5"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -384,7 +390,6 @@
                     android:text="0"
                     android:id="@+id/Attack4Prob"
                     android:layout_gravity="right"
-                    android:layout_rowWeight="0"
                     android:layout_columnWeight="1"
                     android:layout_marginRight="5dp"
                     android:background="#af2421"
@@ -396,14 +401,16 @@
                     android:text="0"
                     android:id="@+id/Attack4Cumu"
                     android:layout_gravity="right"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="5"
                     android:id="@+id/textView7"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -411,7 +418,6 @@
                     android:text="0"
                     android:id="@+id/Attack5Prob"
                     android:layout_gravity="right"
-                    android:layout_rowWeight="0"
                     android:layout_columnWeight="1"
                     android:layout_marginRight="5dp"
                     android:background="#af2421"
@@ -423,14 +429,16 @@
                     android:text="0"
                     android:id="@+id/Attack5Cumu"
                     android:layout_gravity="right"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="6"
                     android:id="@+id/textView8"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -438,7 +446,6 @@
                     android:text="0"
                     android:id="@+id/Attack6Prob"
                     android:layout_gravity="right"
-                    android:layout_rowWeight="0"
                     android:layout_columnWeight="1"
                     android:layout_marginRight="5dp"
                     android:background="#af2421"
@@ -450,7 +457,8 @@
                     android:text="0"
                     android:id="@+id/Attack6Cumu"
                     android:layout_gravity="right"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
             </GridLayout>
 
@@ -474,7 +482,7 @@
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center_vertical|right"
                 android:layout_weight="0"
                 android:columnCount="3"
                 android:rowCount="6" >
@@ -484,7 +492,8 @@
                     android:layout_height="wrap_content"
                     android:text="Hits/Crits"
                     android:id="@+id/textView6"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -502,14 +511,16 @@
                     android:text="Cumulative Dice"
                     android:id="@+id/textView15"
                     android:layout_gravity="right"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
                     android:id="@+id/textView11"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -519,7 +530,8 @@
                     android:layout_gravity="right"
                     android:layout_columnWeight="1"
                     android:layout_marginRight="5dp"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:background="#af2421" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -527,14 +539,16 @@
                     android:text="0"
                     android:id="@+id/DefDie0Cumu"
                     android:layout_gravity="right"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1"
                     android:id="@+id/textView12"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -544,7 +558,8 @@
                     android:layout_gravity="right"
                     android:layout_columnWeight="1"
                     android:layout_marginRight="5dp"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:background="#af2421" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -552,14 +567,16 @@
                     android:text="0"
                     android:id="@+id/DefDie1Cumu"
                     android:layout_gravity="right"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2"
                     android:id="@+id/textView14"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -569,7 +586,8 @@
                     android:layout_gravity="right"
                     android:layout_columnWeight="1"
                     android:layout_marginRight="5dp"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:background="#af2421" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -577,14 +595,16 @@
                     android:text="0"
                     android:id="@+id/DefDie2Cumu"
                     android:layout_gravity="right"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="3"
                     android:id="@+id/textView16"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -594,7 +614,8 @@
                     android:layout_gravity="right"
                     android:layout_columnWeight="1"
                     android:layout_marginRight="5dp"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:background="#af2421" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -602,14 +623,16 @@
                     android:text="0"
                     android:id="@+id/DefDie3Cumu"
                     android:layout_gravity="right"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="4"
                     android:id="@+id/textView18"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -619,7 +642,8 @@
                     android:layout_gravity="right"
                     android:layout_columnWeight="1"
                     android:layout_marginRight="5dp"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:background="#af2421" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -627,14 +651,16 @@
                     android:text="0"
                     android:id="@+id/DefDie4Cumu"
                     android:layout_gravity="right"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="5"
                     android:id="@+id/textView20"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -644,7 +670,8 @@
                     android:layout_gravity="right"
                     android:layout_columnWeight="1"
                     android:layout_marginRight="5dp"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:background="#af2421" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -652,14 +679,16 @@
                     android:text="0"
                     android:id="@+id/DefDie5Cumu"
                     android:layout_gravity="right"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="6"
                     android:id="@+id/textView22"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -669,7 +698,8 @@
                     android:layout_gravity="right"
                     android:layout_columnWeight="1"
                     android:layout_marginRight="5dp"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:background="#af2421" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -677,7 +707,8 @@
                     android:text="0"
                     android:id="@+id/DefDie6Cumu"
                     android:layout_gravity="right"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:layout_columnWeight="1" />
             </GridLayout>
 
             <com.google.android.gms.ads.AdView

@@ -1,11 +1,16 @@
 package com.dice.kevin.x_wingdiceestimator;
 
+import android.app.ActionBar;
 import android.graphics.Color;
+import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
@@ -31,6 +36,7 @@ public class DiceRoller extends AppCompatActivity {
     TextView Defense0Prob,Defense1Prob,Defense2Prob,Defense3Prob,Defense4Prob,Defense5Prob,Defense6Prob;
     Boolean EvadeFocus,AttackFocus,CritOnly, TargetLock;
     CheckBox EvadeFocusCheck,AttackFocusCheck, CritOnlyCheck, TargetLockCheck;
+    int screenWidthpx;
 
 
 
@@ -43,6 +49,11 @@ public class DiceRoller extends AppCompatActivity {
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+
+        //Get Screensize
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        screenWidthpx = metrics.widthPixels;
 
         EvadeFocusCheck = (CheckBox) findViewById(R.id.EvadeFocusCheckBox);
         AttackFocusCheck = (CheckBox) findViewById(R.id.AttackFocusCheckBox);
@@ -273,15 +284,21 @@ public class DiceRoller extends AppCompatActivity {
 
         DecimalFormat df = new DecimalFormat("#.####");
         df.setRoundingMode(RoundingMode.CEILING);
-/*
-        Attack0Prob.setText(df.format(a0dp*AttackDieInt));
-        Attack1Prob.setText(df.format(a1dp*AttackDieInt));
-        Attack2Prob.setText(df.format(a2dp*AttackDieInt));
-        Attack3Prob.setText(df.format(a3dp*AttackDieInt));
-        Attack4Prob.setText(df.format(a4dp*AttackDieInt));
-        Attack5Prob.setText(df.format(a5dp * AttackDieInt));
-        Attack6Prob.setText(df.format(a6dp * AttackDieInt));
-        */
+
+        DecimalFormat dfconvert = new DecimalFormat("#");
+        dfconvert.setRoundingMode(RoundingMode.CEILING);
+
+        //Set all Defense to red background default
+        Defense0Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
+        Defense1Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
+        Defense2Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
+        Defense3Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
+        Defense4Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
+        Defense5Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
+        Defense6Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
+
+
+
 
         Attack0Prob.setText(df.format(a0dp));
         //Color Setting
@@ -342,27 +359,7 @@ public class DiceRoller extends AppCompatActivity {
         }else{
             Attack6Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
         }
-        /*
-        Attack0Cumu.setText(df.format(a0dp*AttackDieInt));
-        if (AttackDieInt >= 1) {
-            Attack1Cumu.setText(df.format((a0dp * AttackDieInt) + (a1dp * AttackDieInt)));
-        }
-        if (AttackDieInt >=2) {
-            Attack2Cumu.setText(df.format((a2dp * AttackDieInt) + (a0dp * AttackDieInt) + (a1dp * AttackDieInt)));
-        }
-        if (AttackDieInt >=3) {
-            Attack3Cumu.setText(df.format((a3dp * AttackDieInt) + (a2dp * AttackDieInt) + (a0dp * AttackDieInt) + (a1dp * AttackDieInt)));
-        }
-        if (AttackDieInt >=4) {
-            Attack4Cumu.setText(df.format((a3dp * AttackDieInt) + (a2dp * AttackDieInt) + (a0dp * AttackDieInt) + (a1dp * AttackDieInt) + (a4dp * AttackDieInt)));
-        }
-        if (AttackDieInt >=5) {
-            Attack5Cumu.setText(df.format((a3dp * AttackDieInt) + (a2dp * AttackDieInt) + (a0dp * AttackDieInt) + (a1dp * AttackDieInt) + (a4dp * AttackDieInt) + (a5dp * AttackDieInt)));
-        }
-        if (AttackDieInt >=6) {
-            Attack6Cumu.setText(df.format((a3dp * AttackDieInt) + (a2dp * AttackDieInt) + (a0dp * AttackDieInt) + (a1dp * AttackDieInt) + (a4dp * AttackDieInt) + (a5dp * AttackDieInt) + (a6dp * AttackDieInt)));
-        }
-        */
+
 
         Attack0Cumu.setText(df.format(a0dp));
         if (AttackDieInt >= 1) {
@@ -384,16 +381,6 @@ public class DiceRoller extends AppCompatActivity {
             Attack6Cumu.setText(df.format((a3dp ) + (a2dp ) + (a0dp ) + (a1dp ) + (a4dp ) + (a5dp ) + (a6dp )));
         }
 
-        /*
-        Defense0Prob.setText(df.format(e0dp*DefenseDieInt));
-        Defense1Prob.setText(df.format(e1dp*DefenseDieInt));
-        Defense2Prob.setText(df.format(e2dp*DefenseDieInt));
-        Defense3Prob.setText(df.format(e3dp*DefenseDieInt));
-        Defense4Prob.setText(df.format(e4dp*DefenseDieInt));
-        Defense5Prob.setText(df.format(e5dp*DefenseDieInt));
-        Defense6Prob.setText(df.format(e6dp*DefenseDieInt));
-        */
-
         Defense0Prob.setText(df.format(e0dp));
         Defense1Prob.setText(df.format(e1dp));
         Defense2Prob.setText(df.format(e2dp));
@@ -401,47 +388,86 @@ public class DiceRoller extends AppCompatActivity {
         Defense4Prob.setText(df.format(e4dp));
         Defense5Prob.setText(df.format(e5dp));
         Defense6Prob.setText(df.format(e6dp));
-        /*
+
+
+        //NOT WORKING!!!
+        //defenseChangeDimensions();
+        //defenseResetDimensions();
+
+
         DefDie0Cumu.setText(df.format(e0dp));
         if (DefenseDieInt >=1) {
-            DefDie1Cumu.setText(df.format(e1dp * DefenseDieInt));
+            DefDie1Cumu.setText(df.format(e1dp + e0dp));
         }
         if (DefenseDieInt >=2) {
-            DefDie2Cumu.setText(df.format((e2dp * DefenseDieInt) + (e1dp * DefenseDieInt)));
+            DefDie2Cumu.setText(df.format((e2dp ) + (e1dp )+ e0dp));
         }
         if (DefenseDieInt >=3) {
-            DefDie3Cumu.setText(df.format((e2dp * DefenseDieInt) + (e1dp * DefenseDieInt)+(e3dp * DefenseDieInt)));
+            DefDie3Cumu.setText(df.format((e2dp ) + (e1dp )+(e3dp )+ e0dp));
         }
         if (DefenseDieInt >=4) {
-            DefDie4Cumu.setText(df.format((((e2dp * DefenseDieInt) + (e1dp * DefenseDieInt)) + (e3dp * DefenseDieInt)) + (e4dp * DefenseDieInt)));
+            DefDie4Cumu.setText(df.format((((e2dp ) + (e1dp )) + (e3dp )) + (e4dp )+ e0dp));
         }
         if (DefenseDieInt >=5) {
-            DefDie5Cumu.setText(df.format((((e2dp * DefenseDieInt) + (e1dp * DefenseDieInt)) + (e3dp * DefenseDieInt)) + (e4dp * DefenseDieInt) + (e5dp * DefenseDieInt)));
+            DefDie5Cumu.setText(df.format((((e2dp ) + (e1dp )) + (e3dp )) + (e4dp ) + (e5dp )+ e0dp));
         }
         if (DefenseDieInt >=6) {
-            DefDie6Cumu.setText(df.format((((e2dp * DefenseDieInt) + (e1dp * DefenseDieInt)) + (e3dp * DefenseDieInt)) + (e4dp * DefenseDieInt) + (e5dp * DefenseDieInt) + (e6dp * DefenseDieInt)));
-        }
-        */
-        DefDie0Cumu.setText(df.format(e0dp));
-        if (DefenseDieInt >=1) {
-            DefDie1Cumu.setText(df.format(e1dp ));
-        }
-        if (DefenseDieInt >=2) {
-            DefDie2Cumu.setText(df.format((e2dp ) + (e1dp )));
-        }
-        if (DefenseDieInt >=3) {
-            DefDie3Cumu.setText(df.format((e2dp ) + (e1dp )+(e3dp )));
-        }
-        if (DefenseDieInt >=4) {
-            DefDie4Cumu.setText(df.format((((e2dp ) + (e1dp )) + (e3dp )) + (e4dp )));
-        }
-        if (DefenseDieInt >=5) {
-            DefDie5Cumu.setText(df.format((((e2dp ) + (e1dp )) + (e3dp )) + (e4dp ) + (e5dp )));
-        }
-        if (DefenseDieInt >=6) {
-            DefDie6Cumu.setText(df.format((((e2dp ) + (e1dp )) + (e3dp )) + (e4dp ) + (e5dp ) + (e6dp )));
+            DefDie6Cumu.setText(df.format((((e2dp ) + (e1dp )) + (e3dp )) + (e4dp ) + (e5dp ) + (e6dp )+ e0dp));
         }
 
+        if (e0dp <= a0dp) {
+            Defense0Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+        }
+
+        if (e1dp >= a1dp) {
+            Defense1Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+        }
+
+        if (e2dp >= a2dp) {
+            Defense2Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+        }
+        if (e3dp >= a3dp) {
+            Defense3Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+        }
+
+        if (e4dp >= a4dp) {
+            Defense4Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+        }
+        if (e5dp >= a5dp) {
+            Defense5Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+        }
+
+        if (e6dp >= a6dp) {
+            Defense6Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+        }
+
+    }
+
+    //WIP
+    //
+    //
+    //
+    public void defenseResetDimensions(){
+        //Reset Widths
+        Defense0Prob.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
+        Defense1Prob.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
+        Defense2Prob.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
+        Defense3Prob.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
+        Defense4Prob.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
+        Defense5Prob.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
+        Defense6Prob.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
+    }
+
+    public void defenseChangeDimensions() {
+        Defense0Prob.setWidth((int) Math.round(e0dp * (ViewGroup.LayoutParams.MATCH_PARENT)));
+        Defense0Prob.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+        Defense1Prob.setWidth((int) Math.round(e1dp * screenWidthpx));
+        Defense1Prob.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);
+        Defense2Prob.setWidth((int) e2dp*screenWidthpx);
+        Defense3Prob.setWidth((int) e3dp*screenWidthpx);
+        Defense4Prob.setWidth((int) e4dp*screenWidthpx);
+        Defense5Prob.setWidth((int) e5dp*screenWidthpx);
+        Defense6Prob.setWidth((int) e6dp*screenWidthpx);
 
     }
 
