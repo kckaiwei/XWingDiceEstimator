@@ -47,8 +47,12 @@ public class DiceRoller extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dice_roller);
         AdView mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice("E34880D7E997D2304D31F2A9350D6FEF")
+                .build();
         mAdView.loadAd(adRequest);
+
 
         //Get Screensize
         DisplayMetrics metrics = new DisplayMetrics();
