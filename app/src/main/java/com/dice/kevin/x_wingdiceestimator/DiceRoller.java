@@ -30,7 +30,7 @@ public class DiceRoller extends AppCompatActivity {
     double currentHitProb, currentMissProb, currentDodgeProb, currentFailProb;
     double a0dp,a1dp,a2dp,a3dp,a4dp,a5dp,a6dp;
     double e0dp,e1dp,e2dp,e3dp,e4dp,e5dp,e6dp;
-    TextView AttackDieText, DefenseDieText;
+    TextView AttackDieText, DefenseDieText, numAttackDieText, numDefenseDieText;
     TextView Attack0Prob,Attack1Prob,Attack2Prob,Attack3Prob,Attack4Prob,Attack5Prob,Attack6Prob;
     TextView Attack0Cumu,Attack1Cumu,Attack2Cumu,Attack3Cumu,Attack4Cumu,Attack5Cumu,Attack6Cumu;
     TextView DefDie0Cumu,DefDie1Cumu, DefDie2Cumu,DefDie3Cumu, DefDie4Cumu, DefDie5Cumu, DefDie6Cumu;
@@ -38,14 +38,24 @@ public class DiceRoller extends AppCompatActivity {
     Boolean EvadeFocus,AttackFocus,CritOnly, TargetLock;
     CheckBox EvadeFocusCheck,AttackFocusCheck, CritOnlyCheck, TargetLockCheck;
     int screenWidthpx;
+    static final String STATE_ATKDIE = "atkDieInt";
+    static final String STATE_DEFDIE = "defDieInt";
+    static final String STATE_ATKFOCUSCHECK = "atkFocusCheck";
+    static final String STATE_DEFFOCUSCHECK = "defFocusCheck";
+    static final String STATE_CRITONLYCHECK = "critOnlyCheck";
+    static final String STATE_TARGETLOCKCHECK = "targetLockCheck";
 
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
+
+        //INITIALIZE THINGS!
+        //
+        //
+
         setContentView(R.layout.activity_dice_roller);
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()
@@ -103,11 +113,65 @@ public class DiceRoller extends AppCompatActivity {
         Defense5Prob = (TextView) findViewById(R.id.DefDie5Prob);
         Defense6Prob = (TextView) findViewById(R.id.DefDie6Prob);
 
+        numAttackDieText = (TextView) findViewById(R.id.NumAttackDieText);
+        numDefenseDieText = (TextView) findViewById(R.id.NumDefDieText);
+
         initialBarSet();
 
-        AttackDieInt = 0;
-        DefenseDieInt = 0;
+        //RESUMING STATE! WILL OVERWRITE PREVIOUS
+        //
+        //
+
+        if (savedInstanceState != null){
+            AttackDieInt = savedInstanceState.getInt(STATE_ATKDIE);
+            DefenseDieInt = savedInstanceState.getInt(STATE_DEFDIE);
+
+            numAttackDieText.setText(String.valueOf(savedInstanceState.getInt(STATE_ATKDIE)));
+            numDefenseDieText.setText(String.valueOf(savedInstanceState.getInt(STATE_DEFDIE)));
+
+            if (savedInstanceState.getBoolean(STATE_ATKFOCUSCHECK)){
+                AttackFocus = savedInstanceState.getBoolean(STATE_ATKFOCUSCHECK);
+                AttackFocusCheck.setChecked(Boolean.TRUE);
+            }
+            if (savedInstanceState.getBoolean(STATE_DEFFOCUSCHECK)){
+                EvadeFocus = savedInstanceState.getBoolean(STATE_DEFFOCUSCHECK);
+                EvadeFocusCheck.setChecked(Boolean.TRUE);
+            }
+            if (savedInstanceState.getBoolean(STATE_TARGETLOCKCHECK)){
+                TargetLock = savedInstanceState.getBoolean(STATE_TARGETLOCKCHECK);
+                TargetLockCheck.setChecked(Boolean.TRUE);
+            }
+            if (savedInstanceState.getBoolean(STATE_CRITONLYCHECK)){
+                CritOnly = savedInstanceState.getBoolean(STATE_CRITONLYCHECK);
+                CritOnlyCheck.setChecked(Boolean.TRUE);
+            }
+
+            compute();
+
+
+        }
+        else {
+            AttackDieInt = 0;
+            DefenseDieInt = 0;
+        }
+
+
+
     }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putInt(STATE_ATKDIE, AttackDieInt);
+        savedInstanceState.putInt(STATE_DEFDIE, DefenseDieInt);
+        savedInstanceState.putBoolean(STATE_ATKFOCUSCHECK, AttackFocus);
+        savedInstanceState.putBoolean(STATE_DEFFOCUSCHECK, EvadeFocus);
+        savedInstanceState.putBoolean(STATE_TARGETLOCKCHECK, TargetLock);
+        savedInstanceState.putBoolean(STATE_CRITONLYCHECK,CritOnly);
+
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+
 
     public void onTickBox(View view){
         if (view.getId()== R.id.AttackCritOnly){
@@ -117,6 +181,7 @@ public class DiceRoller extends AppCompatActivity {
 
         compute();
     }
+
 
     public void onClickAttackIncrease(View view){
         if (AttackDieInt !=6) {

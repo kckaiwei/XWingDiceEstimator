@@ -7,1106 +7,1116 @@
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".DiceRoller"
     android:background="#afafaf">
 
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/scrollView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_centerHorizontal="true"
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/scrollView"
             android:layout_alignParentTop="true"
-            android:weightSum="1"
-            android:gravity="center">
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_weight="0"
-                android:gravity="center">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Attack Die"
-                    android:id="@+id/AttackText"
-                    android:textColor="#000000" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:weightSum="1"
-                android:layout_weight="0">
-
-            </LinearLayout>
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_weight="1"
+            android:layout_gravity="center_horizontal">
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#af2421">
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:weightSum="1"
+                android:gravity="center">
 
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center">
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="-"
-                        android:onClick="onClickAttackDecrease"
-                        android:id="@+id/button2"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="0" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="0"
-                        android:id="@+id/NumAttackDieText"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="0"
-                        android:textColor="#000000"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp" />
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="+"
-                        android:onClick="onClickAttackIncrease"
-                        android:id="@+id/button"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="0" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Focus?"
-                        android:onClick="onTickBox"
-                        android:id="@+id/AttackFocusCheckBox"
-                        android:layout_weight="0"
-                        android:textSize="12dp"
-                        android:textColor="#000000" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Crit Only?"
-                        android:onClick="onTickBox"
-                        android:id="@+id/AttackCritOnly"
-                        android:layout_weight="0"
-                        android:textSize="12dp"
-                        android:textColor="#000000" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"></LinearLayout>
-
-                <CheckBox
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Target Lock?"
-                    android:id="@+id/targetLockCheckBox"
-                    android:layout_gravity="center"
-                    android:onClick="onTickBox"
-                    android:textColor="#000000" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_weight="0">
-
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center" >
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="0"
+                    android:gravity="center">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="Evade Die"
-                        android:id="@+id/EvadeText"
-                        android:layout_weight="0"
+                        android:text="Attack Die"
+                        android:id="@+id/AttackText"
                         android:textColor="#000000" />
-
                 </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:weightSum="1" >
 
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:weightSum="1"
+                    android:layout_weight="0">
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:background="#0da021">
+                    android:background="#af2421">
 
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="-"
-                        android:id="@+id/button3"
-                        android:onClick="onClickDefenseDecrease"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="0" />
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:id="@+id/NumDefDieText"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="0"
-                        android:textColor="#000000"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp" />
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="-"
+                            android:onClick="onClickAttackDecrease"
+                            android:id="@+id/button2"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="0" />
 
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="+"
-                        android:id="@+id/button4"
-                        android:onClick="onClickDefenseIncrease"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="0" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:text="0"
+                            android:id="@+id/NumAttackDieText"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="0"
+                            android:textColor="#000000"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp" />
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+"
+                            android:onClick="onClickAttackIncrease"
+                            android:id="@+id/button"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="0" />
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Focus?"
+                            android:onClick="onTickBox"
+                            android:id="@+id/AttackFocusCheckBox"
+                            android:layout_weight="0"
+                            android:textSize="12dp"
+                            android:textColor="#000000" />
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Crit Only?"
+                            android:onClick="onTickBox"
+                            android:id="@+id/AttackCritOnly"
+                            android:layout_weight="0"
+                            android:textSize="12dp"
+                            android:textColor="#000000" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"></LinearLayout>
 
                     <CheckBox
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Focus?"
+                        android:text="Target Lock?"
+                        android:id="@+id/targetLockCheckBox"
+                        android:layout_gravity="center"
                         android:onClick="onTickBox"
-                        android:id="@+id/EvadeFocusCheckBox"
-                        android:layout_weight="0"
-                        android:textSize="12dp"
                         android:textColor="#000000" />
                 </LinearLayout>
-            </LinearLayout>
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="0">
-
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Attack Die Probabilities"
-                    android:id="@+id/AttackDieProbabilityText"
-                    android:textStyle="bold"
-                    android:textColor="#000000" />
-            </LinearLayout>
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="0">
 
-            <GridLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="0"
-                android:columnCount="3"
-                android:rowCount="6">
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center" >
 
-                <TextView
-                    android:layout_width="wrap_content"
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="Evade Die"
+                            android:id="@+id/EvadeText"
+                            android:layout_weight="0"
+                            android:textColor="#000000" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Hits/Crits"
-                    android:id="@+id/HitsCrits"
-                    android:textColor="#000000"
-                    android:layout_columnWeight="1"
-                    android:layout_column="0"
-                    android:textStyle="italic" />
+                    android:layout_gravity="center_horizontal"
+                    android:weightSum="1" >
 
-                <RelativeLayout
-                    android:layout_width="110dp"
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:background="#0da021">
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="-"
+                            android:id="@+id/button3"
+                            android:onClick="onClickDefenseDecrease"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="0" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:id="@+id/NumDefDieText"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="0"
+                            android:textColor="#000000"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp" />
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+"
+                            android:id="@+id/button4"
+                            android:onClick="onClickDefenseIncrease"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="0" />
+
+                        <CheckBox
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Focus?"
+                            android:onClick="onTickBox"
+                            android:id="@+id/EvadeFocusCheckBox"
+                            android:layout_weight="0"
+                            android:textSize="12dp"
+                            android:textColor="#000000" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_column="1"
-                    android:layout_columnWeight="2"
-                    android:layout_marginRight="2dp">
+                    android:layout_gravity="center"
+                    android:layout_weight="0">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="% Chance"
-                        android:id="@+id/textView"
-                        android:layout_columnWeight="6"
-                        android:textColor="#000000"
-                        android:layout_column="1"
-                        android:layout_gravity="center_vertical|right"
-                        android:gravity="right"
-                        android:layout_alignParentRight="true"
-                        android:textStyle="italic"
-                        android:inputType="text" />
-                </RelativeLayout>
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Attack Die Probabilities"
+                        android:id="@+id/AttackDieProbabilityText"
+                        android:textStyle="bold"
+                        android:textColor="#000000" />
+                </LinearLayout>
 
-                <RelativeLayout
-                    android:layout_width="110dp"
+                <GridLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_columnWeight="2"
-                    android:layout_column="2"
-                    android:layout_gravity="left">
+                    android:layout_gravity="center"
+                    android:layout_weight="0"
+                    android:columnCount="3"
+                    android:rowCount="6">
 
                     <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hits/Crits"
+                        android:id="@+id/HitsCrits"
+                        android:textColor="#000000"
+                        android:layout_columnWeight="1"
+                        android:layout_column="0"
+                        android:textStyle="italic" />
+
+                    <RelativeLayout
                         android:layout_width="110dp"
                         android:layout_height="wrap_content"
-                        android:text="Min. Die %"
-                        android:id="@+id/textView13"
                         android:layout_gravity="right"
-                        android:textColor="#000000"
-                        android:layout_columnWeight="2"
-                        android:layout_column="2"
-                        android:textStyle="italic"
-                        android:inputType="text" />
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="0"
-                    android:id="@+id/textView10"
-                    android:textColor="#000000"
-                    android:layout_columnWeight="1"
-                    android:layout_column="0" />
-
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_columnWeight="2"
-                    android:layout_gravity="right"
-                    android:layout_marginRight="2dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:id="@+id/Attack0Prob"
-                        android:layout_columnWeight="6"
-                        android:autoText="false"
-                        android:background="#af2421"
-                        android:textColor="#000000"
-                        android:inputType="text"
                         android:layout_column="1"
-                        android:layout_gravity="center_vertical|right"
-                        android:gravity="right"
-                        android:layout_alignParentRight="true" />
-                </RelativeLayout>
+                        android:layout_columnWeight="2"
+                        android:layout_marginRight="2dp">
 
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="2"
-                    android:layout_column="2"
-                    android:layout_gravity="left" >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="% Chance"
+                            android:id="@+id/textView"
+                            android:layout_columnWeight="6"
+                            android:textColor="#000000"
+                            android:layout_column="1"
+                            android:layout_gravity="center_vertical|right"
+                            android:gravity="right"
+                            android:layout_alignParentRight="true"
+                            android:textStyle="italic"
+                            android:inputType="text" />
+                    </RelativeLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <RelativeLayout
+                        android:layout_width="110dp"
                         android:layout_height="wrap_content"
-                        android:text="0"
-                        android:id="@+id/Attack0Cumu"
-                        android:layout_gravity="right"
-                        android:textColor="#000000"
                         android:layout_columnWeight="2"
                         android:layout_column="2"
-                        android:inputType="text"
-                        android:background="#0da021" />
-                </RelativeLayout>
+                        android:layout_gravity="left">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1"
-                    android:id="@+id/textView2"
-                    android:textColor="#000000"
-                    android:layout_columnWeight="1"
-                    android:layout_column="0" />
-
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:layout_columnWeight="2"
-                    android:layout_gravity="right"
-                    android:layout_marginRight="2dp">
+                        <TextView
+                            android:layout_width="110dp"
+                            android:layout_height="wrap_content"
+                            android:text="Min. Die %"
+                            android:id="@+id/textView13"
+                            android:layout_gravity="right"
+                            android:textColor="#000000"
+                            android:layout_columnWeight="2"
+                            android:layout_column="2"
+                            android:textStyle="italic"
+                            android:inputType="text" />
+                    </RelativeLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0"
-                        android:id="@+id/Attack1Prob"
-                        android:layout_columnWeight="6"
-                        android:background="#af2421"
+                        android:id="@+id/textView10"
                         android:textColor="#000000"
-                        android:inputType="text"
+                        android:layout_columnWeight="1"
+                        android:layout_column="0" />
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
                         android:layout_column="1"
-                        android:layout_gravity="center_vertical|right"
-                        android:gravity="right"
-                        android:layout_alignParentRight="true" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="2"
-                    android:layout_column="2"
-                    android:layout_gravity="left" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:id="@+id/Attack1Cumu"
+                        android:layout_columnWeight="2"
                         android:layout_gravity="right"
-                        android:textColor="#000000"
+                        android:layout_marginRight="2dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/Attack0Prob"
+                            android:layout_columnWeight="6"
+                            android:autoText="false"
+                            android:background="#af2421"
+                            android:textColor="#000000"
+                            android:inputType="text"
+                            android:layout_column="1"
+                            android:layout_gravity="center_vertical|right"
+                            android:gravity="right"
+                            android:layout_alignParentRight="true" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
                         android:layout_columnWeight="2"
                         android:layout_column="2"
-                        android:inputType="text"
-                        android:background="#0da021" />
-                </RelativeLayout>
+                        android:layout_gravity="left" >
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="2"
-                    android:id="@+id/textView3"
-                    android:textColor="#000000"
-                    android:layout_columnWeight="1"
-                    android:layout_column="0" />
-
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_column="1"
-                    android:layout_columnWeight="2"
-                    android:layout_marginRight="2dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/Attack0Cumu"
+                            android:layout_gravity="right"
+                            android:textColor="#000000"
+                            android:layout_columnWeight="2"
+                            android:layout_column="2"
+                            android:inputType="text"
+                            android:background="#0da021" />
+                    </RelativeLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0"
-                        android:id="@+id/Attack2Prob"
-                        android:layout_columnWeight="6"
-                        android:background="#af2421"
+                        android:text="1"
+                        android:id="@+id/textView2"
                         android:textColor="#000000"
-                        android:inputType="text"
+                        android:layout_columnWeight="1"
+                        android:layout_column="0" />
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
                         android:layout_column="1"
-                        android:layout_gravity="center_vertical|right"
-                        android:gravity="right"
-                        android:layout_alignParentRight="true" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="2"
-                    android:layout_column="2"
-                    android:layout_gravity="left" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:id="@+id/Attack2Cumu"
+                        android:layout_columnWeight="2"
                         android:layout_gravity="right"
-                        android:textColor="#000000"
+                        android:layout_marginRight="2dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/Attack1Prob"
+                            android:layout_columnWeight="6"
+                            android:background="#af2421"
+                            android:textColor="#000000"
+                            android:inputType="text"
+                            android:layout_column="1"
+                            android:layout_gravity="center_vertical|right"
+                            android:gravity="right"
+                            android:layout_alignParentRight="true" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
                         android:layout_columnWeight="2"
                         android:layout_column="2"
-                        android:inputType="text"
-                        android:background="#0da021" />
-                </RelativeLayout>
+                        android:layout_gravity="left" >
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="3"
-                    android:id="@+id/textView4"
-                    android:textColor="#000000"
-                    android:layout_columnWeight="1"
-                    android:layout_column="0" />
-
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_column="1"
-                    android:layout_columnWeight="2"
-                    android:layout_marginRight="2dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/Attack1Cumu"
+                            android:layout_gravity="right"
+                            android:textColor="#000000"
+                            android:layout_columnWeight="2"
+                            android:layout_column="2"
+                            android:inputType="text"
+                            android:background="#0da021" />
+                    </RelativeLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0"
-                        android:id="@+id/Attack3Prob"
-                        android:layout_columnWeight="6"
-                        android:background="#af2421"
+                        android:text="2"
+                        android:id="@+id/textView3"
                         android:textColor="#000000"
-                        android:inputType="text"
+                        android:layout_columnWeight="1"
+                        android:layout_column="0" />
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
                         android:layout_column="1"
-                        android:layout_gravity="center_vertical|right"
-                        android:gravity="right"
-                        android:layout_alignParentRight="true" />
-                </RelativeLayout>
+                        android:layout_columnWeight="2"
+                        android:layout_marginRight="2dp">
 
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="2"
-                    android:layout_column="2"
-                    android:layout_gravity="left" >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/Attack2Prob"
+                            android:layout_columnWeight="6"
+                            android:background="#af2421"
+                            android:textColor="#000000"
+                            android:inputType="text"
+                            android:layout_column="1"
+                            android:layout_gravity="center_vertical|right"
+                            android:gravity="right"
+                            android:layout_alignParentRight="true" />
+                    </RelativeLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <RelativeLayout
+                        android:layout_width="110dp"
                         android:layout_height="wrap_content"
-                        android:text="0"
-                        android:id="@+id/Attack3Cumu"
-                        android:layout_gravity="right"
-                        android:textColor="#000000"
                         android:layout_columnWeight="2"
                         android:layout_column="2"
-                        android:inputType="text"
-                        android:background="#0da021" />
-                </RelativeLayout>
+                        android:layout_gravity="left" >
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="4"
-                    android:id="@+id/textView5"
-                    android:textColor="#000000"
-                    android:layout_columnWeight="1"
-                    android:layout_column="0" />
-
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_column="1"
-                    android:layout_columnWeight="2"
-                    android:layout_marginRight="2dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/Attack2Cumu"
+                            android:layout_gravity="right"
+                            android:textColor="#000000"
+                            android:layout_columnWeight="2"
+                            android:layout_column="2"
+                            android:inputType="text"
+                            android:background="#0da021" />
+                    </RelativeLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0"
-                        android:id="@+id/Attack4Prob"
-                        android:layout_columnWeight="6"
-                        android:background="#af2421"
+                        android:text="3"
+                        android:id="@+id/textView4"
                         android:textColor="#000000"
-                        android:inputType="text"
+                        android:layout_columnWeight="1"
+                        android:layout_column="0" />
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
                         android:layout_column="1"
-                        android:layout_gravity="center_vertical|right"
-                        android:gravity="right"
-                        android:layout_alignParentRight="true" />
-                </RelativeLayout>
+                        android:layout_columnWeight="2"
+                        android:layout_marginRight="2dp">
 
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="2"
-                    android:layout_column="2"
-                    android:layout_gravity="left" >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/Attack3Prob"
+                            android:layout_columnWeight="6"
+                            android:background="#af2421"
+                            android:textColor="#000000"
+                            android:inputType="text"
+                            android:layout_column="1"
+                            android:layout_gravity="center_vertical|right"
+                            android:gravity="right"
+                            android:layout_alignParentRight="true" />
+                    </RelativeLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <RelativeLayout
+                        android:layout_width="110dp"
                         android:layout_height="wrap_content"
-                        android:text="0"
-                        android:id="@+id/Attack4Cumu"
-                        android:layout_gravity="right"
-                        android:textColor="#000000"
                         android:layout_columnWeight="2"
                         android:layout_column="2"
-                        android:inputType="text"
-                        android:background="#0da021" />
-                </RelativeLayout>
+                        android:layout_gravity="left" >
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="5"
-                    android:id="@+id/textView7"
-                    android:textColor="#000000"
-                    android:layout_columnWeight="1"
-                    android:layout_column="0" />
-
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_column="1"
-                    android:layout_columnWeight="2"
-                    android:layout_marginRight="2dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/Attack3Cumu"
+                            android:layout_gravity="right"
+                            android:textColor="#000000"
+                            android:layout_columnWeight="2"
+                            android:layout_column="2"
+                            android:inputType="text"
+                            android:background="#0da021" />
+                    </RelativeLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0"
-                        android:id="@+id/Attack5Prob"
-                        android:layout_columnWeight="6"
-                        android:background="#af2421"
+                        android:text="4"
+                        android:id="@+id/textView5"
                         android:textColor="#000000"
-                        android:inputType="text"
+                        android:layout_columnWeight="1"
+                        android:layout_column="0" />
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
                         android:layout_column="1"
-                        android:layout_gravity="center_vertical|right"
-                        android:gravity="right"
-                        android:layout_alignParentRight="true" />
-                </RelativeLayout>
+                        android:layout_columnWeight="2"
+                        android:layout_marginRight="2dp">
 
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="2"
-                    android:layout_column="2"
-                    android:layout_gravity="left" >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/Attack4Prob"
+                            android:layout_columnWeight="6"
+                            android:background="#af2421"
+                            android:textColor="#000000"
+                            android:inputType="text"
+                            android:layout_column="1"
+                            android:layout_gravity="center_vertical|right"
+                            android:gravity="right"
+                            android:layout_alignParentRight="true" />
+                    </RelativeLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <RelativeLayout
+                        android:layout_width="110dp"
                         android:layout_height="wrap_content"
-                        android:text="0"
-                        android:id="@+id/Attack5Cumu"
-                        android:layout_gravity="right"
-                        android:textColor="#000000"
                         android:layout_columnWeight="2"
                         android:layout_column="2"
-                        android:inputType="text"
-                        android:background="#0da021" />
-                </RelativeLayout>
+                        android:layout_gravity="left" >
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="6"
-                    android:id="@+id/textView8"
-                    android:textColor="#000000"
-                    android:layout_columnWeight="1"
-                    android:layout_column="0" />
-
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_column="1"
-                    android:layout_columnWeight="2"
-                    android:layout_marginRight="2dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/Attack4Cumu"
+                            android:layout_gravity="right"
+                            android:textColor="#000000"
+                            android:layout_columnWeight="2"
+                            android:layout_column="2"
+                            android:inputType="text"
+                            android:background="#0da021" />
+                    </RelativeLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="0"
-                        android:id="@+id/Attack6Prob"
-                        android:layout_columnWeight="6"
-                        android:background="#af2421"
+                        android:text="5"
+                        android:id="@+id/textView7"
                         android:textColor="#000000"
-                        android:inputType="text"
+                        android:layout_columnWeight="1"
+                        android:layout_column="0" />
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
                         android:layout_column="1"
-                        android:layout_gravity="center_vertical|right"
-                        android:gravity="right"
-                        android:layout_alignParentRight="true" />
-                </RelativeLayout>
+                        android:layout_columnWeight="2"
+                        android:layout_marginRight="2dp">
 
-                <RelativeLayout
-                    android:layout_width="110dp"
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/Attack5Prob"
+                            android:layout_columnWeight="6"
+                            android:background="#af2421"
+                            android:textColor="#000000"
+                            android:inputType="text"
+                            android:layout_column="1"
+                            android:layout_gravity="center_vertical|right"
+                            android:gravity="right"
+                            android:layout_alignParentRight="true" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="2"
+                        android:layout_column="2"
+                        android:layout_gravity="left" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/Attack5Cumu"
+                            android:layout_gravity="right"
+                            android:textColor="#000000"
+                            android:layout_columnWeight="2"
+                            android:layout_column="2"
+                            android:inputType="text"
+                            android:background="#0da021" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="6"
+                        android:id="@+id/textView8"
+                        android:textColor="#000000"
+                        android:layout_columnWeight="1"
+                        android:layout_column="0" />
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_column="1"
+                        android:layout_columnWeight="2"
+                        android:layout_marginRight="2dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/Attack6Prob"
+                            android:layout_columnWeight="6"
+                            android:background="#af2421"
+                            android:textColor="#000000"
+                            android:inputType="text"
+                            android:layout_column="1"
+                            android:layout_gravity="center_vertical|right"
+                            android:gravity="right"
+                            android:layout_alignParentRight="true" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="2"
+                        android:layout_column="2"
+                        android:layout_gravity="left" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/Attack6Cumu"
+                            android:layout_gravity="right"
+                            android:textColor="#000000"
+                            android:layout_columnWeight="2"
+                            android:layout_column="2"
+                            android:inputType="text"
+                            android:background="#0da021" />
+                    </RelativeLayout>
+
+                </GridLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_columnWeight="2"
-                    android:layout_column="2"
-                    android:layout_gravity="left" >
+                    android:layout_gravity="center"
+                    android:layout_weight="0" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Evade Die Probabilities"
+                        android:id="@+id/DefDieProbabilitiesText"
+                        android:textStyle="bold"
+                        android:textColor="#000000" />
+                </LinearLayout>
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|right"
+                    android:layout_weight="0"
+                    android:columnCount="3"
+                    android:rowCount="6" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hits/Crits"
+                        android:id="@+id/textView6"
+                        android:textColor="#000000"
+                        android:layout_columnWeight="1"
+                        android:layout_column="0"
+                        android:textStyle="italic" />
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_column="1"
+                        android:layout_columnWeight="2"
+                        android:layout_marginRight="2dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="% Chance"
+                            android:id="@+id/textView9"
+                            android:layout_gravity="center_vertical|right"
+                            android:layout_columnWeight="6"
+                            android:textColor="#000000"
+                            android:layout_column="1"
+                            android:gravity="right"
+                            android:layout_alignParentRight="true"
+                            android:textStyle="italic"
+                            android:inputType="text" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="2"
+                        android:layout_column="2"
+                        android:layout_gravity="left" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Min. Die %"
+                            android:id="@+id/textView15"
+                            android:layout_gravity="right"
+                            android:textColor="#000000"
+                            android:layout_columnWeight="2"
+                            android:layout_column="2"
+                            android:textStyle="italic" />
+                    </RelativeLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0"
-                        android:id="@+id/Attack6Cumu"
-                        android:layout_gravity="right"
+                        android:id="@+id/textView11"
                         android:textColor="#000000"
+                        android:layout_columnWeight="1"
+                        android:layout_column="0" />
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_column="1"
+                        android:layout_columnWeight="2"
+                        android:layout_marginRight="2dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/DefDie0Prob"
+                            android:layout_columnWeight="6"
+                            android:textColor="#000000"
+                            android:background="#af2421"
+                            android:singleLine="false"
+                            android:inputType="text"
+                            android:layout_gravity="center_vertical|right"
+                            android:layout_column="1"
+                            android:gravity="right"
+                            android:layout_alignParentRight="true" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
                         android:layout_columnWeight="2"
                         android:layout_column="2"
-                        android:inputType="text"
-                        android:background="#0da021" />
-                </RelativeLayout>
+                        android:layout_gravity="left" >
 
-            </GridLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/DefDie0Cumu"
+                            android:layout_gravity="right"
+                            android:textColor="#000000"
+                            android:layout_columnWeight="2"
+                            android:layout_column="2"
+                            android:background="#0da021" />
+                    </RelativeLayout>
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="0" >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1"
+                        android:id="@+id/textView12"
+                        android:textColor="#000000"
+                        android:layout_columnWeight="1"
+                        android:layout_column="0" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Evade Die Probabilities"
-                    android:id="@+id/DefDieProbabilitiesText"
-                    android:textStyle="bold"
-                    android:textColor="#000000" />
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_column="1"
+                        android:layout_columnWeight="2"
+                        android:layout_marginRight="2dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/DefDie1Prob"
+                            android:layout_columnWeight="6"
+                            android:textColor="#000000"
+                            android:background="#af2421"
+                            android:inputType="text"
+                            android:layout_gravity="center_vertical|right"
+                            android:layout_column="1"
+                            android:gravity="right"
+                            android:layout_alignParentRight="true" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="2"
+                        android:layout_column="2"
+                        android:layout_gravity="left" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/DefDie1Cumu"
+                            android:layout_gravity="right"
+                            android:textColor="#000000"
+                            android:layout_columnWeight="2"
+                            android:layout_column="2"
+                            android:background="#0da021" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2"
+                        android:id="@+id/textView14"
+                        android:textColor="#000000"
+                        android:layout_columnWeight="1"
+                        android:layout_column="0" />
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_column="1"
+                        android:layout_columnWeight="2"
+                        android:layout_marginRight="2dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/DefDie2Prob"
+                            android:layout_columnWeight="6"
+                            android:textColor="#000000"
+                            android:background="#af2421"
+                            android:inputType="text"
+                            android:layout_gravity="center_vertical|right"
+                            android:layout_column="1"
+                            android:gravity="right"
+                            android:layout_alignParentRight="true" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="2"
+                        android:layout_column="2"
+                        android:layout_gravity="left" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/DefDie2Cumu"
+                            android:layout_gravity="right"
+                            android:textColor="#000000"
+                            android:layout_columnWeight="2"
+                            android:layout_column="2"
+                            android:background="#0da021" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:id="@+id/textView16"
+                        android:textColor="#000000"
+                        android:layout_columnWeight="1"
+                        android:layout_column="0" />
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_column="1"
+                        android:layout_columnWeight="2"
+                        android:layout_marginRight="2dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/DefDie3Prob"
+                            android:layout_columnWeight="6"
+                            android:textColor="#000000"
+                            android:background="#af2421"
+                            android:inputType="text"
+                            android:layout_gravity="center_vertical|right"
+                            android:layout_column="1"
+                            android:gravity="right"
+                            android:layout_alignParentRight="true" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="2"
+                        android:layout_column="2"
+                        android:layout_gravity="left" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/DefDie3Cumu"
+                            android:layout_gravity="right"
+                            android:textColor="#000000"
+                            android:layout_columnWeight="2"
+                            android:layout_column="2"
+                            android:background="#0da021" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4"
+                        android:id="@+id/textView18"
+                        android:textColor="#000000"
+                        android:layout_columnWeight="1"
+                        android:layout_column="0" />
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_column="1"
+                        android:layout_columnWeight="2"
+                        android:layout_marginRight="2dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/DefDie4Prob"
+                            android:layout_columnWeight="6"
+                            android:textColor="#000000"
+                            android:background="#af2421"
+                            android:inputType="text"
+                            android:layout_gravity="center_vertical|right"
+                            android:layout_column="1"
+                            android:gravity="right"
+                            android:layout_alignParentRight="true" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="2"
+                        android:layout_column="2"
+                        android:layout_gravity="left" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/DefDie4Cumu"
+                            android:layout_gravity="right"
+                            android:textColor="#000000"
+                            android:layout_columnWeight="2"
+                            android:layout_column="2"
+                            android:background="#0da021" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5"
+                        android:id="@+id/textView20"
+                        android:textColor="#000000"
+                        android:layout_columnWeight="1"
+                        android:layout_column="0" />
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_column="1"
+                        android:layout_columnWeight="2"
+                        android:layout_marginRight="2dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/DefDie5Prob"
+                            android:layout_columnWeight="6"
+                            android:textColor="#000000"
+                            android:background="#af2421"
+                            android:inputType="text"
+                            android:layout_gravity="center_vertical|right"
+                            android:layout_column="1"
+                            android:gravity="right"
+                            android:layout_alignParentRight="true" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="2"
+                        android:layout_column="2"
+                        android:layout_gravity="left" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/DefDie5Cumu"
+                            android:layout_gravity="right"
+                            android:textColor="#000000"
+                            android:layout_columnWeight="2"
+                            android:layout_column="2"
+                            android:background="#0da021" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="6"
+                        android:id="@+id/textView22"
+                        android:textColor="#000000"
+                        android:layout_columnWeight="1"
+                        android:layout_column="0" />
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_column="1"
+                        android:layout_columnWeight="2"
+                        android:layout_marginRight="2dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/DefDie6Prob"
+                            android:layout_columnWeight="6"
+                            android:textColor="#000000"
+                            android:background="#af2421"
+                            android:inputType="text"
+                            android:layout_gravity="center_vertical|right"
+                            android:layout_column="1"
+                            android:gravity="right"
+                            android:layout_alignParentRight="true" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="2"
+                        android:layout_column="2"
+                        android:layout_gravity="left" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:id="@+id/DefDie6Cumu"
+                            android:layout_gravity="right"
+                            android:textColor="#000000"
+                            android:layout_columnWeight="2"
+                            android:layout_column="2"
+                            android:background="#0da021" />
+                    </RelativeLayout>
+
+                </GridLayout>
+
             </LinearLayout>
 
-            <GridLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|right"
-                android:layout_weight="0"
-                android:columnCount="3"
-                android:rowCount="6" >
+        </ScrollView>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Hits/Crits"
-                    android:id="@+id/textView6"
-                    android:textColor="#000000"
-                    android:layout_columnWeight="1"
-                    android:layout_column="0"
-                    android:textStyle="italic" />
-
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_column="1"
-                    android:layout_columnWeight="2"
-                    android:layout_marginRight="2dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="% Chance"
-                        android:id="@+id/textView9"
-                        android:layout_gravity="center_vertical|right"
-                        android:layout_columnWeight="6"
-                        android:textColor="#000000"
-                        android:layout_column="1"
-                        android:gravity="right"
-                        android:layout_alignParentRight="true"
-                        android:textStyle="italic"
-                        android:inputType="text" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="2"
-                    android:layout_column="2"
-                    android:layout_gravity="left" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Min. Die %"
-                        android:id="@+id/textView15"
-                        android:layout_gravity="right"
-                        android:textColor="#000000"
-                        android:layout_columnWeight="2"
-                        android:layout_column="2"
-                        android:textStyle="italic" />
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="0"
-                    android:id="@+id/textView11"
-                    android:textColor="#000000"
-                    android:layout_columnWeight="1"
-                    android:layout_column="0" />
-
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_column="1"
-                    android:layout_columnWeight="2"
-                    android:layout_marginRight="2dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:id="@+id/DefDie0Prob"
-                        android:layout_columnWeight="6"
-                        android:textColor="#000000"
-                        android:background="#af2421"
-                        android:singleLine="false"
-                        android:inputType="text"
-                        android:layout_gravity="center_vertical|right"
-                        android:layout_column="1"
-                        android:gravity="right"
-                        android:layout_alignParentRight="true" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="2"
-                    android:layout_column="2"
-                    android:layout_gravity="left" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:id="@+id/DefDie0Cumu"
-                        android:layout_gravity="right"
-                        android:textColor="#000000"
-                        android:layout_columnWeight="2"
-                        android:layout_column="2"
-                        android:background="#0da021" />
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="1"
-                    android:id="@+id/textView12"
-                    android:textColor="#000000"
-                    android:layout_columnWeight="1"
-                    android:layout_column="0" />
-
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_column="1"
-                    android:layout_columnWeight="2"
-                    android:layout_marginRight="2dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:id="@+id/DefDie1Prob"
-                        android:layout_columnWeight="6"
-                        android:textColor="#000000"
-                        android:background="#af2421"
-                        android:inputType="text"
-                        android:layout_gravity="center_vertical|right"
-                        android:layout_column="1"
-                        android:gravity="right"
-                        android:layout_alignParentRight="true" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="2"
-                    android:layout_column="2"
-                    android:layout_gravity="left" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:id="@+id/DefDie1Cumu"
-                        android:layout_gravity="right"
-                        android:textColor="#000000"
-                        android:layout_columnWeight="2"
-                        android:layout_column="2"
-                        android:background="#0da021" />
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="2"
-                    android:id="@+id/textView14"
-                    android:textColor="#000000"
-                    android:layout_columnWeight="1"
-                    android:layout_column="0" />
-
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_column="1"
-                    android:layout_columnWeight="2"
-                    android:layout_marginRight="2dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:id="@+id/DefDie2Prob"
-                        android:layout_columnWeight="6"
-                        android:textColor="#000000"
-                        android:background="#af2421"
-                        android:inputType="text"
-                        android:layout_gravity="center_vertical|right"
-                        android:layout_column="1"
-                        android:gravity="right"
-                        android:layout_alignParentRight="true" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="2"
-                    android:layout_column="2"
-                    android:layout_gravity="left" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:id="@+id/DefDie2Cumu"
-                        android:layout_gravity="right"
-                        android:textColor="#000000"
-                        android:layout_columnWeight="2"
-                        android:layout_column="2"
-                        android:background="#0da021" />
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="3"
-                    android:id="@+id/textView16"
-                    android:textColor="#000000"
-                    android:layout_columnWeight="1"
-                    android:layout_column="0" />
-
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_column="1"
-                    android:layout_columnWeight="2"
-                    android:layout_marginRight="2dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:id="@+id/DefDie3Prob"
-                        android:layout_columnWeight="6"
-                        android:textColor="#000000"
-                        android:background="#af2421"
-                        android:inputType="text"
-                        android:layout_gravity="center_vertical|right"
-                        android:layout_column="1"
-                        android:gravity="right"
-                        android:layout_alignParentRight="true" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="2"
-                    android:layout_column="2"
-                    android:layout_gravity="left" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:id="@+id/DefDie3Cumu"
-                        android:layout_gravity="right"
-                        android:textColor="#000000"
-                        android:layout_columnWeight="2"
-                        android:layout_column="2"
-                        android:background="#0da021" />
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="4"
-                    android:id="@+id/textView18"
-                    android:textColor="#000000"
-                    android:layout_columnWeight="1"
-                    android:layout_column="0" />
-
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_column="1"
-                    android:layout_columnWeight="2"
-                    android:layout_marginRight="2dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:id="@+id/DefDie4Prob"
-                        android:layout_columnWeight="6"
-                        android:textColor="#000000"
-                        android:background="#af2421"
-                        android:inputType="text"
-                        android:layout_gravity="center_vertical|right"
-                        android:layout_column="1"
-                        android:gravity="right"
-                        android:layout_alignParentRight="true" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="2"
-                    android:layout_column="2"
-                    android:layout_gravity="left" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:id="@+id/DefDie4Cumu"
-                        android:layout_gravity="right"
-                        android:textColor="#000000"
-                        android:layout_columnWeight="2"
-                        android:layout_column="2"
-                        android:background="#0da021" />
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="5"
-                    android:id="@+id/textView20"
-                    android:textColor="#000000"
-                    android:layout_columnWeight="1"
-                    android:layout_column="0" />
-
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_column="1"
-                    android:layout_columnWeight="2"
-                    android:layout_marginRight="2dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:id="@+id/DefDie5Prob"
-                        android:layout_columnWeight="6"
-                        android:textColor="#000000"
-                        android:background="#af2421"
-                        android:inputType="text"
-                        android:layout_gravity="center_vertical|right"
-                        android:layout_column="1"
-                        android:gravity="right"
-                        android:layout_alignParentRight="true" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="2"
-                    android:layout_column="2"
-                    android:layout_gravity="left" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:id="@+id/DefDie5Cumu"
-                        android:layout_gravity="right"
-                        android:textColor="#000000"
-                        android:layout_columnWeight="2"
-                        android:layout_column="2"
-                        android:background="#0da021" />
-                </RelativeLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="6"
-                    android:id="@+id/textView22"
-                    android:textColor="#000000"
-                    android:layout_columnWeight="1"
-                    android:layout_column="0" />
-
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_column="1"
-                    android:layout_columnWeight="2"
-                    android:layout_marginRight="2dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:id="@+id/DefDie6Prob"
-                        android:layout_columnWeight="6"
-                        android:textColor="#000000"
-                        android:background="#af2421"
-                        android:inputType="text"
-                        android:layout_gravity="center_vertical|right"
-                        android:layout_column="1"
-                        android:gravity="right"
-                        android:layout_alignParentRight="true" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="110dp"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="2"
-                    android:layout_column="2"
-                    android:layout_gravity="left" >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:id="@+id/DefDie6Cumu"
-                        android:layout_gravity="right"
-                        android:textColor="#000000"
-                        android:layout_columnWeight="2"
-                        android:layout_column="2"
-                        android:background="#0da021" />
-                </RelativeLayout>
-
-            </GridLayout>
-
-        </LinearLayout>
-
-    </ScrollView>
-
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_ad_unit_id"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true">
-    </com.google.android.gms.ads.AdView>
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner_ad_unit_id"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="0"
+            android:layout_gravity="center_horizontal">
+        </com.google.android.gms.ads.AdView>
+    </LinearLayout>
 
 
 </RelativeLayout>
