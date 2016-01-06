@@ -286,6 +286,8 @@ public class DiceRoller extends AppCompatActivity {
     }
 
 
+
+
     public void setAttackandDefText(){
 
         DecimalFormat df = new DecimalFormat("#.####");
@@ -306,9 +308,11 @@ public class DiceRoller extends AppCompatActivity {
 
 
 
-        Attack0Prob.setText(df.format(a0dp));
+        Attack0Prob.setText(df.format(100*(a0dp)));
         //Color Setting
         //0 is special since it is bad
+
+        setColorCumulativeBoth();
 
         if (a0dp < e0dp){
             Attack0Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
@@ -316,7 +320,7 @@ public class DiceRoller extends AppCompatActivity {
             Attack0Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
         }
 
-        Attack1Prob.setText(df.format(a1dp));
+        Attack1Prob.setText(df.format(100*(a1dp)));
         if (a1dp - e1dp >= 0.25){
             Attack1Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
         }else if (a1dp - e1dp >0){
@@ -324,7 +328,7 @@ public class DiceRoller extends AppCompatActivity {
         }else{
             Attack1Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
         }
-        Attack2Prob.setText(df.format(a2dp));
+        Attack2Prob.setText(df.format(100*(a2dp)));
         if (a2dp - e2dp >= 0.25){
             Attack2Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
         }else if (a2dp - e2dp >0){
@@ -332,7 +336,7 @@ public class DiceRoller extends AppCompatActivity {
         }else{
             Attack2Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
         }
-        Attack3Prob.setText(df.format(a3dp));
+        Attack3Prob.setText(df.format(100*(a3dp)));
         if (a3dp - e3dp >= 0.25){
             Attack3Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
         }else if (a3dp - e3dp >0){
@@ -340,7 +344,7 @@ public class DiceRoller extends AppCompatActivity {
         }else{
             Attack3Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
         }
-        Attack4Prob.setText(df.format(a4dp));
+        Attack4Prob.setText(df.format(100*(a4dp)));
         if (a4dp - e4dp >= 0.25){
             Attack4Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
         }else if (a4dp - e4dp >0){
@@ -348,7 +352,7 @@ public class DiceRoller extends AppCompatActivity {
         }else{
             Attack4Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
         }
-        Attack5Prob.setText(df.format(a5dp));
+        Attack5Prob.setText(df.format(100*(a5dp)));
         if (a5dp - e5dp >= 0.25){
             Attack5Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
         }else if (a5dp - e5dp >0){
@@ -356,7 +360,7 @@ public class DiceRoller extends AppCompatActivity {
         }else{
             Attack5Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
         }
-        Attack6Prob.setText(df.format(a6dp));
+        Attack6Prob.setText(df.format(100*(a6dp)));
 
         if (a6dp - e6dp >= 0.25){
             Attack6Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
@@ -367,33 +371,33 @@ public class DiceRoller extends AppCompatActivity {
         }
 
 
-        Attack0Cumu.setText(df.format(a0dp));
+        Attack0Cumu.setText(df.format(100*((a3dp ) + (a2dp ) + (a0dp ) + (a1dp ) + (a4dp ) + (a5dp ) + (a6dp ))));
         if (AttackDieInt >= 1) {
-            Attack1Cumu.setText(df.format((a0dp ) + (a1dp )));
+            Attack1Cumu.setText(df.format(100*(a1dp+a2dp+a3dp+a4dp+a5dp+a6dp)));
         }
         if (AttackDieInt >=2) {
-            Attack2Cumu.setText(df.format((a2dp ) + (a0dp ) + (a1dp )));
+            Attack2Cumu.setText(df.format(100*(a2dp+a3dp+a4dp+a5dp+a6dp)));
         }
         if (AttackDieInt >=3) {
-            Attack3Cumu.setText(df.format((a3dp ) + (a2dp) + (a0dp ) + (a1dp )));
+            Attack3Cumu.setText(df.format(100*(a3dp+a4dp+a5dp+a6dp)));
         }
         if (AttackDieInt >=4) {
-            Attack4Cumu.setText(df.format((a3dp ) + (a2dp ) + (a0dp ) + (a1dp ) + (a4dp )));
+            Attack4Cumu.setText(df.format(100*(a4dp+a5dp+a6dp)));
         }
         if (AttackDieInt >=5) {
-            Attack5Cumu.setText(df.format((a3dp ) + (a2dp ) + (a0dp ) + (a1dp ) + (a4dp ) + (a5dp )));
+            Attack5Cumu.setText(df.format(100*(a5dp+a6dp)));
         }
         if (AttackDieInt >=6) {
-            Attack6Cumu.setText(df.format((a3dp ) + (a2dp ) + (a0dp ) + (a1dp ) + (a4dp ) + (a5dp ) + (a6dp )));
+            Attack6Cumu.setText(df.format(100*(a6dp)));
         }
 
-        Defense0Prob.setText(df.format(e0dp));
-        Defense1Prob.setText(df.format(e1dp));
-        Defense2Prob.setText(df.format(e2dp));
-        Defense3Prob.setText(df.format(e3dp));
-        Defense4Prob.setText(df.format(e4dp));
-        Defense5Prob.setText(df.format(e5dp));
-        Defense6Prob.setText(df.format(e6dp));
+        Defense0Prob.setText(df.format(100*(e0dp)));
+        Defense1Prob.setText(df.format(100*(e1dp)));
+        Defense2Prob.setText(df.format(100*(e2dp)));
+        Defense3Prob.setText(df.format(100*(e3dp)));
+        Defense4Prob.setText(df.format(100*(e4dp)));
+        Defense5Prob.setText(df.format(100*(e5dp)));
+        Defense6Prob.setText(df.format(100*(e6dp)));
 
 
         //NOT WORKING!!!
@@ -403,24 +407,25 @@ public class DiceRoller extends AppCompatActivity {
 
 
 
-        DefDie0Cumu.setText(df.format(e0dp));
+        DefDie0Cumu.setText(df.format(100*((((e2dp ) + (e1dp )) + (e3dp )) + (e4dp ) + (e5dp ) + (e6dp )+ e0dp)));
         if (DefenseDieInt >=1) {
-            DefDie1Cumu.setText(df.format(e1dp + e0dp));
+
+            DefDie1Cumu.setText(df.format(100*((((e2dp ) + (e1dp )) + (e3dp )) + (e4dp ) + (e5dp ) + (e6dp ))));
         }
         if (DefenseDieInt >=2) {
-            DefDie2Cumu.setText(df.format((e2dp ) + (e1dp )+ e0dp));
+            DefDie2Cumu.setText(df.format(100*(e6dp+e5dp+e4dp+e3dp+e2dp)));
         }
         if (DefenseDieInt >=3) {
-            DefDie3Cumu.setText(df.format((e2dp ) + (e1dp )+(e3dp )+ e0dp));
+            DefDie3Cumu.setText(df.format(100*(e6dp+e5dp+e4dp+e3dp)));
         }
         if (DefenseDieInt >=4) {
-            DefDie4Cumu.setText(df.format((((e2dp ) + (e1dp )) + (e3dp )) + (e4dp )+ e0dp));
+            DefDie4Cumu.setText(df.format(100*((e6dp + e5dp+ e4dp))));
         }
         if (DefenseDieInt >=5) {
-            DefDie5Cumu.setText(df.format((((e2dp ) + (e1dp )) + (e3dp )) + (e4dp ) + (e5dp )+ e0dp));
+            DefDie5Cumu.setText(df.format(100*(e6dp+e5dp)));
         }
         if (DefenseDieInt >=6) {
-            DefDie6Cumu.setText(df.format((((e2dp ) + (e1dp )) + (e3dp )) + (e4dp ) + (e5dp ) + (e6dp )+ e0dp));
+            DefDie6Cumu.setText(df.format(100*(e6dp)));
         }
 
         if (e0dp <= a0dp) {
@@ -449,6 +454,77 @@ public class DiceRoller extends AppCompatActivity {
             Defense6Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
         }
 
+
+
+    }
+
+    public void setColorCumulativeBoth(){
+        if ((a6dp+a5dp+a4dp+a3dp+a2dp+a1dp+a0dp)> (e6dp+e5dp+e4dp+e3dp+e2dp+e1dp+e0dp)){
+            //set Attack to green if higher
+            Attack0Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            DefDie0Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
+        }else {
+            Attack0Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
+            DefDie0Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+        }
+
+        if ((a6dp+a5dp+a4dp+a3dp+a2dp+a1dp)> (e6dp+e5dp+e4dp+e3dp+e2dp+e1dp)){
+            //set Attack to green if higher
+            Attack1Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            DefDie1Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
+        }else {
+            Attack1Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
+            DefDie1Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+        }
+
+        if ((a6dp+a5dp+a4dp+a3dp+a2dp)> (e6dp+e5dp+e4dp+e3dp+e2dp)){
+            //set Attack to green if higher
+            Attack2Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            DefDie2Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
+        }else {
+            Attack2Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
+            DefDie2Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+        }
+        if ((a6dp+a5dp+a4dp+a3dp)> (e6dp+e5dp+e4dp+e3dp)){
+            //set Attack to green if higher
+            Attack3Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            DefDie3Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
+        }else {
+            Attack3Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
+            DefDie3Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+        }
+        if ((a6dp+a5dp+a4dp)> (e6dp+e5dp+e4dp)){
+            //set Attack to green if higher
+            Attack4Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            DefDie4Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
+        }else {
+            Attack4Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
+            DefDie4Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+        }
+        if ((a6dp+a5dp+a4dp)> (e6dp+e5dp+e4dp)){
+            //set Attack to green if higher
+            Attack4Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            DefDie4Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
+        }else {
+            Attack4Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
+            DefDie4Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+        }
+        if ((a6dp+a5dp)> (e6dp+e5dp)){
+            //set Attack to green if higher
+            Attack5Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            DefDie5Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
+        }else {
+            Attack5Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
+            DefDie5Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+        }
+        if ((a6dp)> (e6dp)){
+            //set Attack to green if higher
+            Attack6Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            DefDie6Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
+        }else {
+            Attack6Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
+            DefDie6Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+        }
     }
 
     //WIP
@@ -474,6 +550,14 @@ public class DiceRoller extends AppCompatActivity {
         Attack4Prob.setWidth((int) ((screenWidthpx/8)+ (a4dp * (screenWidthpx/3))));
         Attack5Prob.setWidth((int) ((screenWidthpx/8)+ (a5dp * (screenWidthpx/3))));
         Attack6Prob.setWidth((int) ((screenWidthpx/8)+ (a6dp * (screenWidthpx/3))));
+
+        Attack0Cumu.setWidth((int) ((screenWidthpx/8)+ ((a6dp+a5dp+a4dp+a3dp+a2dp+a1dp+a0dp) * (screenWidthpx/3))));
+        Attack1Cumu.setWidth((int) ((screenWidthpx/8)+ ((a6dp+a5dp+a4dp+a3dp+a2dp+a1dp) * (screenWidthpx/3))));
+        Attack2Cumu.setWidth((int) ((screenWidthpx/8)+ ((a6dp+a5dp+a4dp+a3dp+a2dp) * (screenWidthpx/3))));
+        Attack3Cumu.setWidth((int) ((screenWidthpx/8)+ ((a6dp+a5dp+a4dp+a3dp) * (screenWidthpx/3))));
+        Attack4Cumu.setWidth((int) ((screenWidthpx/8)+ ((a6dp+a5dp+a4dp) * (screenWidthpx/3))));
+        Attack5Cumu.setWidth((int) ((screenWidthpx/8)+ ((a6dp+a5dp) * (screenWidthpx/3))));
+        Attack6Cumu.setWidth((int) ((screenWidthpx/8)+ ((a6dp) * (screenWidthpx/3))));
     }
 
     public void defenseChangeDimensions() {
@@ -484,6 +568,14 @@ public class DiceRoller extends AppCompatActivity {
         Defense4Prob.setWidth((int) ((screenWidthpx/8)+(e4dp * (screenWidthpx / 3))));
         Defense5Prob.setWidth((int) ((screenWidthpx/8)+(e5dp * (screenWidthpx / 3))));
         Defense6Prob.setWidth((int) ((screenWidthpx/8)+(e6dp * (screenWidthpx / 3))));
+
+        DefDie0Cumu.setWidth((int) ((screenWidthpx/8)+((e6dp+e5dp+e4dp+e3dp+e2dp+e1dp+e0dp) * (screenWidthpx / 3))));
+        DefDie1Cumu.setWidth((int) ((screenWidthpx/8)+((e6dp+e5dp+e4dp+e3dp+e2dp+e1dp) * (screenWidthpx / 3))));
+        DefDie2Cumu.setWidth((int) ((screenWidthpx/8)+((e6dp+e5dp+e4dp+e3dp+e2dp) * (screenWidthpx / 3))));
+        DefDie3Cumu.setWidth((int) ((screenWidthpx/8)+((e6dp+e5dp+e4dp+e3dp) * (screenWidthpx / 3))));
+        DefDie4Cumu.setWidth((int) ((screenWidthpx/8)+((e6dp+e5dp+e4dp) * (screenWidthpx / 3))));
+        DefDie5Cumu.setWidth((int) ((screenWidthpx/8)+((e6dp+e5dp) * (screenWidthpx / 3))));
+        DefDie6Cumu.setWidth((int) ((screenWidthpx/8)+((e6dp) * (screenWidthpx / 3))));
 
     }
 
@@ -496,6 +588,14 @@ public class DiceRoller extends AppCompatActivity {
         Defense5Prob.setWidth((int) ((screenWidthpx/8)));
         Defense6Prob.setWidth((int) ((screenWidthpx/8)));
 
+        DefDie0Cumu.setWidth((int) ((screenWidthpx/8)));
+        DefDie1Cumu.setWidth((int) ((screenWidthpx/8)));
+        DefDie2Cumu.setWidth((int) ((screenWidthpx/8)));
+        DefDie3Cumu.setWidth((int) ((screenWidthpx/8)));
+        DefDie4Cumu.setWidth((int) ((screenWidthpx/8)));
+        DefDie5Cumu.setWidth((int) ((screenWidthpx/8)));
+        DefDie6Cumu.setWidth((int) ((screenWidthpx/8)));
+
         Attack0Prob.setWidth((int) ((screenWidthpx / 8)));
         Attack1Prob.setWidth((int) ((screenWidthpx/8)));
         Attack2Prob.setWidth((int) ((screenWidthpx/8)));
@@ -503,6 +603,14 @@ public class DiceRoller extends AppCompatActivity {
         Attack4Prob.setWidth((int) ((screenWidthpx/8)));
         Attack5Prob.setWidth((int) ((screenWidthpx/8)));
         Attack6Prob.setWidth((int) ((screenWidthpx/8)));
+
+        Attack0Cumu.setWidth((int) ((screenWidthpx/8)));
+        Attack1Cumu.setWidth((int) ((screenWidthpx/8)));
+        Attack2Cumu.setWidth((int) ((screenWidthpx/8)));
+        Attack3Cumu.setWidth((int) ((screenWidthpx/8)));
+        Attack4Cumu.setWidth((int) ((screenWidthpx/8)));
+        Attack5Cumu.setWidth((int) ((screenWidthpx/8)));
+        Attack6Cumu.setWidth((int) ((screenWidthpx/8)));
     }
 
     public void chanceMultiplication() {
