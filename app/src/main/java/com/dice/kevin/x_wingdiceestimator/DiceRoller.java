@@ -1,6 +1,7 @@
 package com.dice.kevin.x_wingdiceestimator;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
@@ -10,6 +11,7 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Surface;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
@@ -37,7 +39,7 @@ public class DiceRoller extends AppCompatActivity {
     TextView Defense0Prob,Defense1Prob,Defense2Prob,Defense3Prob,Defense4Prob,Defense5Prob,Defense6Prob;
     Boolean EvadeFocus,AttackFocus,CritOnly, TargetLock;
     CheckBox EvadeFocusCheck,AttackFocusCheck, CritOnlyCheck, TargetLockCheck;
-    int screenWidthpx;
+    int screenWidthpx, screenHeightpx;
     static final String STATE_ATKDIE = "atkDieInt";
     static final String STATE_DEFDIE = "defDieInt";
     static final String STATE_ATKFOCUSCHECK = "atkFocusCheck";
@@ -67,8 +69,30 @@ public class DiceRoller extends AppCompatActivity {
 
         //Get Screensize
         DisplayMetrics metrics = new DisplayMetrics();
+
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
         screenWidthpx = metrics.widthPixels;
+        screenHeightpx = metrics.heightPixels;
+
+        if (getWindowManager().getDefaultDisplay().getOrientation() == Surface.ROTATION_0){
+
+            screenWidthpx=metrics.widthPixels;
+        }
+        if (getWindowManager().getDefaultDisplay().getOrientation() == Surface.ROTATION_90){
+            screenWidthpx=metrics.heightPixels;
+        }
+
+        if (getWindowManager().getDefaultDisplay().getOrientation() == Surface.ROTATION_180){
+
+            screenWidthpx=metrics.widthPixels;
+        }
+        if (getWindowManager().getDefaultDisplay().getOrientation() == Surface.ROTATION_270){
+            screenWidthpx=metrics.heightPixels;
+        }
+
+
+
 
         EvadeFocusCheck = (CheckBox) findViewById(R.id.EvadeFocusCheckBox);
         AttackFocusCheck = (CheckBox) findViewById(R.id.AttackFocusCheckBox);
@@ -141,6 +165,7 @@ public class DiceRoller extends AppCompatActivity {
                 TargetLock = savedInstanceState.getBoolean(STATE_TARGETLOCKCHECK);
                 TargetLockCheck.setChecked(Boolean.TRUE);
             }
+
             if (savedInstanceState.getBoolean(STATE_CRITONLYCHECK)){
                 CritOnly = savedInstanceState.getBoolean(STATE_CRITONLYCHECK);
                 CritOnlyCheck.setChecked(Boolean.TRUE);
@@ -179,7 +204,10 @@ public class DiceRoller extends AppCompatActivity {
         }
 
 
+
+
         compute();
+
     }
 
 
