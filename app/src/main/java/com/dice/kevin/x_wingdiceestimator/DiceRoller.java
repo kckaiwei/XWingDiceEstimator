@@ -14,7 +14,10 @@ import android.view.MenuItem;
 import android.view.Surface;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
@@ -25,13 +28,24 @@ import org.w3c.dom.Text;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
-public class DiceRoller extends AppCompatActivity {
+public class DiceRoller extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     int AttackDieInt,DefenseDieInt;
     double hitChance;
     double hitMod,evadeMod;
     double currentHitProb, currentMissProb, currentDodgeProb, currentFailProb;
     double a0dp,a1dp,a2dp,a3dp,a4dp,a5dp,a6dp;
     double e0dp,e1dp,e2dp,e3dp,e4dp,e5dp,e6dp;
+
+    //skill code (1st skill mod, 2nd skill mod)
+    int skc1,skc2;
+
+    //skill modified dice
+    double am1h,am2h,am3h;
+    double dm1h,dm2h,dm3h;
+
+    //skill mod dice miss chance
+    double am1m,am2m,am3m;
+    double dm1m,dm2m,dm3m;
     TextView AttackDieText, DefenseDieText, numAttackDieText, numDefenseDieText;
     TextView Attack0Prob,Attack1Prob,Attack2Prob,Attack3Prob,Attack4Prob,Attack5Prob,Attack6Prob;
     TextView Attack0Cumu,Attack1Cumu,Attack2Cumu,Attack3Cumu,Attack4Cumu,Attack5Cumu,Attack6Cumu;
@@ -39,6 +53,7 @@ public class DiceRoller extends AppCompatActivity {
     TextView Defense0Prob,Defense1Prob,Defense2Prob,Defense3Prob,Defense4Prob,Defense5Prob,Defense6Prob;
     Boolean EvadeFocus,AttackFocus,CritOnly, TargetLock;
     CheckBox EvadeFocusCheck,AttackFocusCheck, CritOnlyCheck, TargetLockCheck;
+    Spinner atkPilotSpinner;
     int screenWidthpx, screenHeightpx;
     static final String STATE_ATKDIE = "atkDieInt";
     static final String STATE_DEFDIE = "defDieInt";
@@ -53,6 +68,13 @@ public class DiceRoller extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //TEMPORARY SKILL 0 DEFAULT NO FRILLS
+        //skc1 = 0;
+
+
+
+
 
         //INITIALIZE THINGS!
         //
@@ -127,8 +149,6 @@ public class DiceRoller extends AppCompatActivity {
         DefDie6Cumu = (TextView) findViewById(R.id.DefDie6Cumu);
 
 
-
-
         Defense0Prob = (TextView) findViewById(R.id.DefDie0Prob);
         Defense1Prob = (TextView) findViewById(R.id.DefDie1Prob);
         Defense2Prob = (TextView) findViewById(R.id.DefDie2Prob);
@@ -136,6 +156,12 @@ public class DiceRoller extends AppCompatActivity {
         Defense4Prob = (TextView) findViewById(R.id.DefDie4Prob);
         Defense5Prob = (TextView) findViewById(R.id.DefDie5Prob);
         Defense6Prob = (TextView) findViewById(R.id.DefDie6Prob);
+
+        atkPilotSpinner = (Spinner) findViewById(R.id.atkPilotSpinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.atkPilotSpinner, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        atkPilotSpinner.setAdapter(adapter);
+        atkPilotSpinner.setOnItemSelectedListener(this);
 
         numAttackDieText = (TextView) findViewById(R.id.NumAttackDieText);
         numDefenseDieText = (TextView) findViewById(R.id.NumDefDieText);
@@ -184,6 +210,36 @@ public class DiceRoller extends AppCompatActivity {
 
     }
 
+    public void onItemSelected(AdapterView<?> parent, View view,
+                               int pos, long id) {
+        Spinner spinner = (Spinner) parent;
+
+        switch (spinner.getId()) {
+            case R.id.atkPilotSpinner:
+
+                switch (atkPilotSpinner.getSelectedItemPosition()) {
+                    case 0:
+                        skc1 = 0;
+                        break;
+                    case 1:
+                        skc1 = 1;
+                        break;
+
+                }
+                break;
+
+
+        }
+        compute();
+    }
+
+    public void onNothingSelected(AdapterView<?> parent){
+        if (parent == atkPilotSpinner){
+            skc1 = 0;
+        }
+        compute();
+    }
+
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
         savedInstanceState.putInt(STATE_ATKDIE, AttackDieInt);
@@ -204,11 +260,10 @@ public class DiceRoller extends AppCompatActivity {
         }
 
 
-
-
         compute();
 
     }
+
 
 
     public void onClickAttackIncrease(View view){
@@ -301,6 +356,10 @@ public class DiceRoller extends AppCompatActivity {
         }else {
             evadeMod =5;
         }
+
+
+
+
         chanceMultiplication();
         switch (AttackDieInt) {
             case 0: Attack0Calc();
@@ -717,6 +776,34 @@ public class DiceRoller extends AppCompatActivity {
             currentHitProb = currentHitProb+ (currentHitProb*currentMissProb);
             currentMissProb = currentMissProb*currentMissProb;
         }
+        modifiedDieCalc();
+    }
+
+    public void modifiedDieCalc(){
+        switch (skc1) {
+
+            case 0:
+                am1h = currentHitProb;
+                am1m = currentMissProb;
+                //reroll focus on mod. die 1 POE'S ABILITY SHIT
+                break;
+            case 1:
+                am1h = ((0.75));
+                am1m = (1-am1h);
+                if (TargetLock){
+                    am1h= (.75+(.25*.75));
+                    am1m = 1-am1h;
+                }
+                if (CritOnly){
+                    am1h = currentHitProb;
+                    am1m = 1-am1h;
+                }
+                break;
+        }
+
+        //
+        //
+        //END SKILL MODDING
     }
 
     public void Attack0Calc() {
@@ -725,8 +812,8 @@ public class DiceRoller extends AppCompatActivity {
 
     public void Attack1Calc(){
 
-        a0dp = currentMissProb;
-        a1dp = currentHitProb*1;
+        a0dp = am1m;
+        a1dp = am1h;
 
 
     }
@@ -738,77 +825,77 @@ public class DiceRoller extends AppCompatActivity {
             Attack2Prob.setText(String.valueOf(currentHitProb* currentHitProb));
     */
 
-        a0dp = Math.pow(currentMissProb,2.0);
-        a1dp = (currentHitProb*currentMissProb) *2;
-        a2dp = Math.pow(currentHitProb,2.0);
+        a0dp = currentMissProb*am1m;
+        a1dp = ((am1h*currentMissProb)+(am1m*currentHitProb));
+        a2dp = currentHitProb*am1h;
     }
 
 
     public void Attack3Calc() {
-        a0dp = Math.pow(currentMissProb,3.0);
-        a1dp = (currentMissProb*currentMissProb*currentHitProb)*3;
-        a2dp = (currentHitProb* currentHitProb* currentMissProb)*3;
-        a3dp = Math.pow(currentHitProb,3.0);
+        a0dp = Math.pow(currentMissProb,2.0) * am1m;
+        a1dp = (am1m*currentMissProb*currentHitProb)*
+                (am1h*currentMissProb*currentMissProb)*
+                (am1m*currentMissProb*currentHitProb);
+        a2dp = (am1m*currentHitProb*currentHitProb)*
+                (am1h*currentHitProb*currentMissProb)*
+                (am1h*currentMissProb*currentHitProb);
+        a3dp = Math.pow(currentHitProb,2.0) * am1h;
 
-        /*
-        Attack0Prob.setText(String.valueOf(Math.pow(currentMissProb, 3.0)));
-        Attack1Prob.setText(String.valueOf((currentMissProb * currentMissProb * currentHitProb) * 3));
-        Attack2Prob.setText(String.valueOf((currentHitProb * currentHitProb * currentMissProb) * 3));
-        Attack3Prob.setText(String.valueOf(Math.pow(currentHitProb, 3.0)));
-*/
     }
 
     public void Attack4Calc(){
-        /*
-        Attack0Prob.setText(String.valueOf(Math.pow(currentMissProb, 4.0)));
-        Attack1Prob.setText(String.valueOf((currentMissProb * currentMissProb * currentHitProb * currentMissProb) * 4));
-        Attack2Prob.setText(String.valueOf((currentHitProb * currentHitProb * currentMissProb * currentMissProb) * 6));
-        Attack3Prob.setText(String.valueOf((currentHitProb * currentHitProb * currentHitProb * currentMissProb) * 4));
-        Attack4Prob.setText(String.valueOf(Math.pow(currentHitProb, 4.0)));
 
-    */
-        a0dp = Math.pow(currentMissProb,4.0);
-        a1dp = (currentHitProb * currentMissProb *currentMissProb * currentMissProb)*4;
-        a2dp = (currentHitProb * currentHitProb *currentMissProb * currentMissProb)*6;
+        a0dp = Math.pow(currentMissProb,3.0)*am1m;
+        a1dp = (am1h * currentMissProb *currentMissProb * currentMissProb)*
+                (am1m * currentMissProb *currentMissProb * currentMissProb)*
+                (am1m * currentMissProb *currentMissProb * currentMissProb)*
+                (am1m * currentMissProb *currentMissProb * currentMissProb);
+        a2dp = (am1h * currentHitProb *currentMissProb * currentMissProb)*
+                (am1h * currentHitProb *currentMissProb * currentMissProb)*
+                (am1h * currentHitProb *currentMissProb * currentMissProb)*
+                (am1m * currentHitProb *currentHitProb * currentMissProb)*
+                (am1m * currentHitProb *currentHitProb * currentMissProb)*
+                (am1m * currentHitProb *currentHitProb * currentMissProb);
         a3dp = (currentHitProb * currentHitProb *currentHitProb * currentMissProb)*4;
-        a4dp = Math.pow(currentHitProb, 4.0);
+        a4dp = Math.pow(currentHitProb, 3.0)*am1h;
 
 
     }
     public void Attack5Calc(){
-        /*
-        Attack0Prob.setText(String.valueOf(Math.pow(currentMissProb, 5.0)));
-        Attack1Prob.setText(String.valueOf((currentMissProb * currentMissProb * currentHitProb * currentMissProb * currentMissProb) * 5));
-        Attack2Prob.setText(String.valueOf((currentHitProb * currentHitProb * currentMissProb * currentMissProb *currentMissProb) * 10));
-        Attack3Prob.setText(String.valueOf((currentHitProb * currentHitProb * currentHitProb * currentMissProb *currentMissProb) * 10));
-        Attack4Prob.setText(String.valueOf((currentHitProb * currentHitProb * currentHitProb * currentHitProb *currentMissProb) * 5));
-        Attack5Prob.setText(String.valueOf(Math.pow(currentHitProb, 5.0)));
-    */
 
-        a0dp = Math.pow(currentMissProb,5.0);
-        a1dp = (currentHitProb * currentMissProb *currentMissProb * currentMissProb * currentMissProb)*5;
-        a2dp = (currentHitProb * currentHitProb *currentMissProb * currentMissProb * currentMissProb)*10;
-        a3dp = (currentHitProb * currentHitProb *currentHitProb * currentMissProb * currentMissProb)*10;
-        a4dp = (currentHitProb* currentHitProb* currentHitProb* currentHitProb * currentMissProb)*5;
-        a5dp = Math.pow(currentHitProb, 5.0);
+
+        a0dp = Math.pow(currentMissProb,4.0)*am1m;
+
+        a1dp = (currentHitProb * currentMissProb *currentMissProb * currentMissProb * am1m)*
+                (am1h * currentMissProb*currentMissProb*currentMissProb);
+
+        a2dp = (am1h * currentHitProb *currentMissProb * currentMissProb * currentMissProb)*5*
+                (am1m * currentHitProb*currentHitProb *currentMissProb * currentMissProb)*5;
+
+        a3dp = (am1h * currentHitProb *currentHitProb * currentMissProb * currentMissProb)*5*
+                (am1m * currentHitProb* currentHitProb* currentHitProb* currentMissProb);
+
+        a4dp = (currentHitProb* currentHitProb* currentHitProb* currentHitProb * am1m)*4*
+                (am1h*currentHitProb*currentHitProb*currentMissProb);
+
+        a5dp = Math.pow(currentHitProb, 4.0)*am1h;
     }
     public void Attack6Calc(){
-        /*
-        Attack0Prob.setText(String.valueOf(Math.pow(currentMissProb, 6.0)));
-        Attack1Prob.setText(String.valueOf((currentMissProb * currentMissProb * currentHitProb * currentMissProb * currentMissProb* currentMissProb) * 6));
-        Attack2Prob.setText(String.valueOf((currentHitProb * currentHitProb * currentMissProb * currentMissProb *currentMissProb *currentMissProb) * 15));
-        Attack3Prob.setText(String.valueOf((currentHitProb * currentHitProb * currentHitProb * currentMissProb *currentMissProb *currentMissProb) * 20));
-        Attack4Prob.setText(String.valueOf((currentHitProb * currentHitProb * currentHitProb * currentHitProb *currentMissProb *currentMissProb) * 15));
-        Attack5Prob.setText(String.valueOf((currentHitProb * currentHitProb * currentHitProb * currentHitProb *currentHitProb *currentMissProb) * 6));
-        Attack6Prob.setText(String.valueOf(Math.pow(currentHitProb, 6.0)));
-*/
-        a0dp = Math.pow(currentMissProb,6.0);
-        a1dp = (currentHitProb * currentMissProb *currentMissProb * currentMissProb * currentMissProb * currentMissProb)*6;
+
+        a0dp = Math.pow(currentMissProb,5.0) * am1m;
+        a1dp = (am1h * currentMissProb *currentMissProb * currentMissProb * currentMissProb * currentMissProb)*3*
+                (am1m * currentHitProb*currentMissProb*currentMissProb*currentMissProb*currentMissProb)*3;
+
         a2dp = (currentHitProb * currentHitProb *currentMissProb * currentMissProb * currentMissProb * currentMissProb)*15;
+
         a3dp = (currentHitProb * currentHitProb *currentHitProb * currentMissProb * currentMissProb * currentMissProb)*20;
+
         a4dp = (currentHitProb* currentHitProb* currentHitProb* currentHitProb * currentMissProb * currentMissProb)*15;
-        a5dp = (currentHitProb* currentHitProb* currentHitProb *currentHitProb *currentHitProb * currentMissProb)*6;
-        a6dp = Math.pow(currentHitProb, 6.0);
+
+        a5dp = (am1h* currentHitProb* currentHitProb *currentHitProb *currentHitProb * currentMissProb)*3*
+                (am1m* currentHitProb* currentHitProb *currentHitProb *currentHitProb * currentHitProb)*3;
+
+        a6dp = Math.pow(currentHitProb, 5.0) * am1h;
     }
 
 

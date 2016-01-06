@@ -11,4 +11,10 @@
     <color name="okayYellow">#0da021</color>
     color name="okayYellow">#FFBD9D00
     <color name="badRed">#af2421</color>
+    
+    <string-array name="atkPilotSpinner">
+        <item>Pilot</item>
+        <item>Poe Dameron</item> change 1 focus to success
+    </string-array>
+    
 </resources>
