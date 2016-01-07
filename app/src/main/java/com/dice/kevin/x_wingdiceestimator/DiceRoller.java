@@ -732,11 +732,6 @@ public class DiceRoller extends AppCompatActivity {
     }
 
     public void Attack2Calc(){
-        /*
-            Attack0Prob.setText(String.valueOf((Math.pow(currentMissProb,2.0))));
-            Attack1Prob.setText(String.valueOf((currentHitProb*currentMissProb) +(currentHitProb*currentMissProb)));
-            Attack2Prob.setText(String.valueOf(currentHitProb* currentHitProb));
-    */
 
         a0dp = Math.pow(currentMissProb,2.0);
         a1dp = (currentHitProb*currentMissProb) *2;
@@ -750,23 +745,10 @@ public class DiceRoller extends AppCompatActivity {
         a2dp = (currentHitProb* currentHitProb* currentMissProb)*3;
         a3dp = Math.pow(currentHitProb,3.0);
 
-        /*
-        Attack0Prob.setText(String.valueOf(Math.pow(currentMissProb, 3.0)));
-        Attack1Prob.setText(String.valueOf((currentMissProb * currentMissProb * currentHitProb) * 3));
-        Attack2Prob.setText(String.valueOf((currentHitProb * currentHitProb * currentMissProb) * 3));
-        Attack3Prob.setText(String.valueOf(Math.pow(currentHitProb, 3.0)));
-*/
     }
 
     public void Attack4Calc(){
-        /*
-        Attack0Prob.setText(String.valueOf(Math.pow(currentMissProb, 4.0)));
-        Attack1Prob.setText(String.valueOf((currentMissProb * currentMissProb * currentHitProb * currentMissProb) * 4));
-        Attack2Prob.setText(String.valueOf((currentHitProb * currentHitProb * currentMissProb * currentMissProb) * 6));
-        Attack3Prob.setText(String.valueOf((currentHitProb * currentHitProb * currentHitProb * currentMissProb) * 4));
-        Attack4Prob.setText(String.valueOf(Math.pow(currentHitProb, 4.0)));
 
-    */
         a0dp = Math.pow(currentMissProb,4.0);
         a1dp = (currentHitProb * currentMissProb *currentMissProb * currentMissProb)*4;
         a2dp = (currentHitProb * currentHitProb *currentMissProb * currentMissProb)*6;
@@ -776,14 +758,7 @@ public class DiceRoller extends AppCompatActivity {
 
     }
     public void Attack5Calc(){
-        /*
-        Attack0Prob.setText(String.valueOf(Math.pow(currentMissProb, 5.0)));
-        Attack1Prob.setText(String.valueOf((currentMissProb * currentMissProb * currentHitProb * currentMissProb * currentMissProb) * 5));
-        Attack2Prob.setText(String.valueOf((currentHitProb * currentHitProb * currentMissProb * currentMissProb *currentMissProb) * 10));
-        Attack3Prob.setText(String.valueOf((currentHitProb * currentHitProb * currentHitProb * currentMissProb *currentMissProb) * 10));
-        Attack4Prob.setText(String.valueOf((currentHitProb * currentHitProb * currentHitProb * currentHitProb *currentMissProb) * 5));
-        Attack5Prob.setText(String.valueOf(Math.pow(currentHitProb, 5.0)));
-    */
+
 
         a0dp = Math.pow(currentMissProb,5.0);
         a1dp = (currentHitProb * currentMissProb *currentMissProb * currentMissProb * currentMissProb)*5;
@@ -793,15 +768,7 @@ public class DiceRoller extends AppCompatActivity {
         a5dp = Math.pow(currentHitProb, 5.0);
     }
     public void Attack6Calc(){
-        /*
-        Attack0Prob.setText(String.valueOf(Math.pow(currentMissProb, 6.0)));
-        Attack1Prob.setText(String.valueOf((currentMissProb * currentMissProb * currentHitProb * currentMissProb * currentMissProb* currentMissProb) * 6));
-        Attack2Prob.setText(String.valueOf((currentHitProb * currentHitProb * currentMissProb * currentMissProb *currentMissProb *currentMissProb) * 15));
-        Attack3Prob.setText(String.valueOf((currentHitProb * currentHitProb * currentHitProb * currentMissProb *currentMissProb *currentMissProb) * 20));
-        Attack4Prob.setText(String.valueOf((currentHitProb * currentHitProb * currentHitProb * currentHitProb *currentMissProb *currentMissProb) * 15));
-        Attack5Prob.setText(String.valueOf((currentHitProb * currentHitProb * currentHitProb * currentHitProb *currentHitProb *currentMissProb) * 6));
-        Attack6Prob.setText(String.valueOf(Math.pow(currentHitProb, 6.0)));
-*/
+
         a0dp = Math.pow(currentMissProb,6.0);
         a1dp = (currentHitProb * currentMissProb *currentMissProb * currentMissProb * currentMissProb * currentMissProb)*6;
         a2dp = (currentHitProb * currentHitProb *currentMissProb * currentMissProb * currentMissProb * currentMissProb)*15;
