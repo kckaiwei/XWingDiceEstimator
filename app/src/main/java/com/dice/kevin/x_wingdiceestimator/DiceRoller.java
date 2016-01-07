@@ -390,13 +390,13 @@ public class DiceRoller extends AppCompatActivity {
         dfconvert.setRoundingMode(RoundingMode.CEILING);
 
         //Set all Defense to red background default
-        Defense0Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
-        Defense1Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
-        Defense2Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
-        Defense3Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
-        Defense4Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
-        Defense5Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
-        Defense6Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
+        Defense0Prob.setBackgroundResource(R.drawable.textview_redfill);
+        Defense1Prob.setBackgroundResource(R.drawable.textview_redfill);
+        Defense2Prob.setBackgroundResource(R.drawable.textview_redfill);
+        Defense3Prob.setBackgroundResource(R.drawable.textview_redfill);
+        Defense4Prob.setBackgroundResource(R.drawable.textview_redfill);
+        Defense5Prob.setBackgroundResource(R.drawable.textview_redfill);
+        Defense6Prob.setBackgroundResource(R.drawable.textview_redfill);
 
 
 
@@ -408,59 +408,59 @@ public class DiceRoller extends AppCompatActivity {
         setColorCumulativeBoth();
 
         if (a0dp < e0dp){
-            Attack0Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            Attack0Prob.setBackgroundResource(R.drawable.textview_greenfill);
         }else{
-            Attack0Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
+            Attack0Prob.setBackgroundResource(R.drawable.textview_redfill);
         }
 
         Attack1Prob.setText(df.format(100*(a1dp)));
         if (a1dp - e1dp >= 0.25){
-            Attack1Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            Attack1Prob.setBackgroundResource(R.drawable.textview_greenfill);
         }else if (a1dp - e1dp >0){
-            Attack1Prob.setBackgroundColor(getResources().getColor(R.color.okayYellow));
+            Attack1Prob.setBackgroundResource(R.drawable.textview_greenfill);
         }else{
-            Attack1Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
+            Attack1Prob.setBackgroundResource(R.drawable.textview_redfill);
         }
         Attack2Prob.setText(df.format(100*(a2dp)));
         if (a2dp - e2dp >= 0.25){
-            Attack2Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            Attack2Prob.setBackgroundResource(R.drawable.textview_greenfill);
         }else if (a2dp - e2dp >0){
-            Attack2Prob.setBackgroundColor(getResources().getColor(R.color.okayYellow));
+            Attack2Prob.setBackgroundResource(R.drawable.textview_greenfill);
         }else{
-            Attack2Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
+            Attack2Prob.setBackgroundResource(R.drawable.textview_redfill);
         }
         Attack3Prob.setText(df.format(100*(a3dp)));
         if (a3dp - e3dp >= 0.25){
-            Attack3Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            Attack3Prob.setBackgroundResource(R.drawable.textview_greenfill);
         }else if (a3dp - e3dp >0){
-            Attack3Prob.setBackgroundColor(getResources().getColor(R.color.okayYellow));
+            Attack3Prob.setBackgroundResource(R.drawable.textview_greenfill);
         }else{
-            Attack3Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
+            Attack3Prob.setBackgroundResource(R.drawable.textview_redfill);
         }
         Attack4Prob.setText(df.format(100*(a4dp)));
         if (a4dp - e4dp >= 0.25){
-            Attack4Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            Attack4Prob.setBackgroundResource(R.drawable.textview_greenfill);
         }else if (a4dp - e4dp >0){
-            Attack4Prob.setBackgroundColor(getResources().getColor(R.color.okayYellow));
+            Attack4Prob.setBackgroundResource(R.drawable.textview_greenfill);
         }else{
-            Attack4Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
+            Attack4Prob.setBackgroundResource(R.drawable.textview_redfill);
         }
         Attack5Prob.setText(df.format(100*(a5dp)));
         if (a5dp - e5dp >= 0.25){
-            Attack5Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            Attack5Prob.setBackgroundResource(R.drawable.textview_greenfill);
         }else if (a5dp - e5dp >0){
-            Attack5Prob.setBackgroundColor(getResources().getColor(R.color.okayYellow));
+            Attack5Prob.setBackgroundResource(R.drawable.textview_greenfill);
         }else{
-            Attack5Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
+            Attack5Prob.setBackgroundResource(R.drawable.textview_redfill);
         }
         Attack6Prob.setText(df.format(100*(a6dp)));
 
         if (a6dp - e6dp >= 0.25){
-            Attack6Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            Attack6Prob.setBackgroundResource(R.drawable.textview_greenfill);
         }else if (a6dp - e6dp >0){
-            Attack6Prob.setBackgroundColor(getResources().getColor(R.color.okayYellow));
+            Attack6Prob.setBackgroundResource(R.drawable.textview_greenfill);
         }else{
-            Attack6Prob.setBackgroundColor(getResources().getColor(R.color.badRed));
+            Attack6Prob.setBackgroundResource(R.drawable.textview_redfill);
         }
 
 
@@ -522,29 +522,29 @@ public class DiceRoller extends AppCompatActivity {
         }
 
         if (e0dp <= a0dp) {
-            Defense0Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            Defense0Prob.setBackgroundResource(R.drawable.textview_greenfill);
         }
 
         if (e1dp >= a1dp) {
-            Defense1Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            Defense1Prob.setBackgroundResource(R.drawable.textview_greenfill);
         }
 
         if (e2dp >= a2dp) {
-            Defense2Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            Defense2Prob.setBackgroundResource(R.drawable.textview_greenfill);
         }
         if (e3dp >= a3dp) {
-            Defense3Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            Defense3Prob.setBackgroundResource(R.drawable.textview_greenfill);
         }
 
         if (e4dp >= a4dp) {
-            Defense4Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            Defense4Prob.setBackgroundResource(R.drawable.textview_greenfill);
         }
         if (e5dp >= a5dp) {
-            Defense5Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            Defense5Prob.setBackgroundResource(R.drawable.textview_greenfill);
         }
 
         if (e6dp >= a6dp) {
-            Defense6Prob.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            Defense6Prob.setBackgroundResource(R.drawable.textview_greenfill);
         }
 
 
@@ -554,69 +554,69 @@ public class DiceRoller extends AppCompatActivity {
     public void setColorCumulativeBoth(){
         if ((a6dp+a5dp+a4dp+a3dp+a2dp+a1dp+a0dp)> (e6dp+e5dp+e4dp+e3dp+e2dp+e1dp+e0dp)){
             //set Attack to green if higher
-            Attack0Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
-            DefDie0Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
+            Attack0Cumu.setBackgroundResource(R.drawable.textview_greenfill);
+            DefDie0Cumu.setBackgroundResource(R.drawable.textview_redfill);
         }else {
-            Attack0Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
-            DefDie0Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            Attack0Cumu.setBackgroundResource(R.drawable.textview_redfill);
+            DefDie0Cumu.setBackgroundResource(R.drawable.textview_greenfill);
         }
 
         if ((a6dp+a5dp+a4dp+a3dp+a2dp+a1dp)> (e6dp+e5dp+e4dp+e3dp+e2dp+e1dp)){
             //set Attack to green if higher
-            Attack1Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
-            DefDie1Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
+            Attack1Cumu.setBackgroundResource(R.drawable.textview_greenfill);
+            DefDie1Cumu.setBackgroundResource(R.drawable.textview_redfill);
         }else {
-            Attack1Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
-            DefDie1Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            Attack1Cumu.setBackgroundResource(R.drawable.textview_redfill);
+            DefDie1Cumu.setBackgroundResource(R.drawable.textview_greenfill);
         }
 
         if ((a6dp+a5dp+a4dp+a3dp+a2dp)> (e6dp+e5dp+e4dp+e3dp+e2dp)){
             //set Attack to green if higher
-            Attack2Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
-            DefDie2Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
+            Attack2Cumu.setBackgroundResource(R.drawable.textview_greenfill);
+            DefDie2Cumu.setBackgroundResource(R.drawable.textview_redfill);
         }else {
-            Attack2Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
-            DefDie2Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            Attack2Cumu.setBackgroundResource(R.drawable.textview_redfill);
+            DefDie2Cumu.setBackgroundResource(R.drawable.textview_greenfill);
         }
         if ((a6dp+a5dp+a4dp+a3dp)> (e6dp+e5dp+e4dp+e3dp)){
             //set Attack to green if higher
-            Attack3Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
-            DefDie3Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
+            Attack3Cumu.setBackgroundResource(R.drawable.textview_greenfill);
+            DefDie3Cumu.setBackgroundResource(R.drawable.textview_redfill);
         }else {
-            Attack3Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
-            DefDie3Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            Attack3Cumu.setBackgroundResource(R.drawable.textview_redfill);
+            DefDie3Cumu.setBackgroundResource(R.drawable.textview_greenfill);
         }
         if ((a6dp+a5dp+a4dp)> (e6dp+e5dp+e4dp)){
             //set Attack to green if higher
-            Attack4Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
-            DefDie4Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
+            Attack4Cumu.setBackgroundResource(R.drawable.textview_greenfill);
+            DefDie4Cumu.setBackgroundResource(R.drawable.textview_redfill);
         }else {
-            Attack4Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
-            DefDie4Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            Attack4Cumu.setBackgroundResource(R.drawable.textview_redfill);
+            DefDie4Cumu.setBackgroundResource(R.drawable.textview_greenfill);
         }
         if ((a6dp+a5dp+a4dp)> (e6dp+e5dp+e4dp)){
             //set Attack to green if higher
-            Attack4Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
-            DefDie4Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
+            Attack4Cumu.setBackgroundResource(R.drawable.textview_greenfill);
+            DefDie4Cumu.setBackgroundResource(R.drawable.textview_redfill);
         }else {
-            Attack4Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
-            DefDie4Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            Attack4Cumu.setBackgroundResource(R.drawable.textview_redfill);
+            DefDie4Cumu.setBackgroundResource(R.drawable.textview_greenfill);
         }
         if ((a6dp+a5dp)> (e6dp+e5dp)){
             //set Attack to green if higher
-            Attack5Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
-            DefDie5Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
+            Attack5Cumu.setBackgroundResource(R.drawable.textview_greenfill);
+            DefDie5Cumu.setBackgroundResource(R.drawable.textview_redfill);
         }else {
-            Attack5Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
-            DefDie5Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            Attack5Cumu.setBackgroundResource(R.drawable.textview_redfill);
+            DefDie5Cumu.setBackgroundResource(R.drawable.textview_greenfill);
         }
         if ((a6dp)> (e6dp)){
             //set Attack to green if higher
-            Attack6Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
-            DefDie6Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
+            Attack6Cumu.setBackgroundResource(R.drawable.textview_greenfill);
+            DefDie6Cumu.setBackgroundResource(R.drawable.textview_redfill);
         }else {
-            Attack6Cumu.setBackgroundColor(getResources().getColor(R.color.badRed));
-            DefDie6Cumu.setBackgroundColor(getResources().getColor(R.color.goodGreen));
+            Attack6Cumu.setBackgroundResource(R.drawable.textview_redfill);
+            DefDie6Cumu.setBackgroundResource(R.drawable.textview_greenfill);
         }
     }
 
