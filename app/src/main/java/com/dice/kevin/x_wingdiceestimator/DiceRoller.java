@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import com.axonix.android.sdk.AxonixMMABannerXLAdView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
@@ -47,7 +48,7 @@ public class DiceRoller extends AppCompatActivity {
     static final String STATE_CRITONLYCHECK = "critOnlyCheck";
     static final String STATE_TARGETLOCKCHECK = "targetLockCheck";
 
-
+    AxonixMMABannerXLAdView adview_banner;
 
 
     @Override
@@ -59,12 +60,29 @@ public class DiceRoller extends AppCompatActivity {
         //
 
         setContentView(R.layout.activity_dice_roller);
+
+        /*
+        //Get the ad view from the layout file
+        adview_banner = (AxonixMMABannerXLAdView) findViewById(R.id.advertising_banner_view);
+
+        //Get an ad
+        adview_banner.getAd();
+
+        //Pause ad refresh
+        adview_banner.pause();
+
+        //Resume ad refresh
+        adview_banner.resume();
+        */
+        /*
         AdView mAdView = (AdView) findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                 .addTestDevice("E34880D7E997D2304D31F2A9350D6FEF")
                 .build();
         mAdView.loadAd(adRequest);
+        */
+
 
 
         //Get Screensize
