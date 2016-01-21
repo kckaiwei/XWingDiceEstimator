@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Display;
@@ -16,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
+
 
 import com.axonix.android.sdk.AxonixMMABannerXLAdView;
 import com.google.android.gms.ads.AdRequest;
@@ -48,6 +50,8 @@ public class DiceRoller extends AppCompatActivity {
     static final String STATE_CRITONLYCHECK = "critOnlyCheck";
     static final String STATE_TARGETLOCKCHECK = "targetLockCheck";
 
+    private android.support.v7.widget.Toolbar toolbar;
+
     AxonixMMABannerXLAdView adview_banner;
 
 
@@ -60,6 +64,11 @@ public class DiceRoller extends AppCompatActivity {
         //
 
         setContentView(R.layout.activity_dice_roller);
+
+        toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.tool_bar);
+        setSupportActionBar(toolbar);
+        toolbar.setLogo(R.mipmap.mainicon);
+
 
         /*
         //Get the ad view from the layout file
@@ -200,6 +209,29 @@ public class DiceRoller extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_dice_roller, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.menu_faq) {
+            return true;
+        }
+
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -864,25 +896,4 @@ public class DiceRoller extends AppCompatActivity {
 
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_dice_roller, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }

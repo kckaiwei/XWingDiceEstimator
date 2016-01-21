@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">X-Wing Dice Probability Calculator</string>
+    <string name="dice_roller_bartitle">X-Wing Calculator</string>
 
     <string name="banner_ad_unit_id">ca-app-pub-6884033300993433/2996288501</string>
     ca-app-pub-6884033300993433/2996288501
@@ -7,6 +8,8 @@
     TEST ca-app-pub-3940256099942544/6300978111
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="menu_faq">FAQ</string>
+    <string name="menu_about">About</string>
     <color name="goodGreen">#0da021</color>
     <color name="okayYellow">#0da021</color>
     color name="okayYellow">#FFBD9D00
