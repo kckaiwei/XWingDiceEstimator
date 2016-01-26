@@ -1,0 +1,112 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+
+    android:layout_height="match_parent"  tools:context=".DiceRoller"
+    android:background="#afafaf">
+
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar"
+        ></include>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/scrollView2"
+        android:layout_below="@+id/tool_bar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tool_bar"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:dividerPadding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/about_title"
+                android:id="@+id/textView21"
+                android:layout_gravity="center_horizontal|left"
+                style="@style/about_text" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/about_barcolorsstring"
+                android:id="@+id/textView23"
+                android:layout_marginLeft="20dp"
+                style="@style/about_text" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/about_bartext"
+                android:id="@+id/textView24"
+                android:layout_marginLeft="40dp"
+                style="@style/about_text" />
+
+            <TextView
+                style="@style/about_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/about_barheight"
+                android:id="@+id/textView26"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                style="@style/about_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/about_barheighttext"
+                android:id="@+id/textView25"
+                android:layout_marginLeft="40dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/about_column"
+                android:id="@+id/textView17"
+                android:layout_marginLeft="20dp"
+                style="@style/about_text" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/about_columntext"
+                android:id="@+id/textView19"
+                android:layout_marginLeft="40dp"
+                style="@style/about_text" />
+
+            <TextView
+                style="@style/about_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/about_modifiers"
+                android:id="@+id/textView27"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                style="@style/about_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/about_modifiers_text"
+                android:id="@+id/textView28"
+                android:layout_marginLeft="40dp" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
